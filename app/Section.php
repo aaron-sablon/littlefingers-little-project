@@ -24,4 +24,8 @@ class Section extends Model
 	public function student(){
 		return $this->belongsTo('App\Student', 'section_id', 'id');
 	}
+
+	public function professor(){
+		return $this->belongsTo('App\Professor', 'advisory', 'name');
+	}
 }
