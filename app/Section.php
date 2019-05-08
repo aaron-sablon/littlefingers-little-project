@@ -21,7 +21,7 @@ class Section extends Model
 	}
 
 	//can i do this? two belongsTo functions???
-		public function schedule(){
+	public function student(){
 		return $this->belongsTo('App\Student', 'section_id', 'id');
 	}
 }
