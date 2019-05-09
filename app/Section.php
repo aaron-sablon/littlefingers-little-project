@@ -26,6 +26,6 @@ class Section extends Model
 
 	//don't know if this will work
 	public function professor(){
-		return $this->belongsTo('App\Professor', 'section_id', 'id');
+		return $this->belongsTo('App\Professor', 'advisory', 'name');
 	}
 }
