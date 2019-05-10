@@ -24,13 +24,12 @@ class ProfessorsController extends Controller
         ]; 
     }
     //these functions are not complete yet
-    //create
-    //update
-    //delete
-    //index
-    //show
-    //store
-    //edit
+    //create; done
+    //update;done
+    //delete;done
+    //index;done
+    //show;done
+    //restore;done
     
     public function create(){
     	$professors = Professor::all();
@@ -85,6 +84,18 @@ class ProfessorsController extends Controller
 
 
     //other needed functions
+
+    //index page 
+
+    public function index(){
+        // $album=Album::with('user')->find();
+        // dd($album->user()->id);
+    	$professors = Professor::paginate(10);
+
+    	$this->params['professors'] = $professors;
+    	// // dd($users->albums());
+    	 return view('professors.index', $this->params);
+    }
 
     //show the professors tab
      public function show($id){

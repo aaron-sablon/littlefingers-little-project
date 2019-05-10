@@ -83,7 +83,7 @@ class SchedulesController extends Controller
         $sections = Schedule::find($id)->sections;
         $schedules = Schedule::find($id);
         $this->params=[
-            'subjects' => $user,
+            'subjects' => $subjects,
             'times' => $albums,
             'rooms' => $rooms,
             'professors' => $professors,
@@ -91,10 +91,16 @@ class SchedulesController extends Controller
             'schedules' => $schedules
         ];
 
-        // dd( $albums->user->id);
-        //no view yet
-                return view('', $this->params);
+        dd( $schedules->subjects->name);
 
+        //no view yet
+                return view('schedule.show', $this->params);
+
+    }
+
+    public function index($id){
+        $students=Students::with('schedule')->find();
+        dd($students->schedule()->fname);
     }
 
 }

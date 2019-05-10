@@ -19,7 +19,7 @@ class Student extends Model
     //Students cannot access the app
     //therefore no need for authentication
 
-    public static $rules => array(
+    public static $rules = array(
     	'fname'		=> 'required|min:2|max:50',
     	'lname'		=> 'required|min:2|max:50'
     );

@@ -50,13 +50,20 @@ class SectionsController extends Controller
             
     }
     $sections = Section::find($id);
-    $sections->fname =INPUT::get('name');
+    $sections->name =INPUT::get('name');
+
+    $sections->save();
+
+    $this->params['msg']='Information updated successfully.';
+    //no route yet
+    return redirect()->route('')->with($this->params);
+    
 }
-    public function destroy(){
+    public function destroy($id){
         $sections = Section::find($id);
         $sections->delete();
 
-        $this->params['msg']='Professor was removed successfully.';
+        $this->params['msg']='Section was removed successfully.';
         //no route yet
         return redirect()->route('')->with($this->params);
 

@@ -11,10 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/professor', function () {
-    return view('professor.index');
-});
+Route::resource('professors', 'ProfessorsController');
+
+Route::resource('rooms', 'RoomsController');
+
+Route::resource('schedules', 'SchedulesController');
+
+Route::resource('sections', 'SectionsController');
+
+Route::resource('specializations', 'SpecializationsController');
+
+Route::resource('students', 'StudentsController');
+
+Route::resource('subjects', 'SubjectsController');
+
+Route::resource('slots', 'TimesController');
