@@ -30,7 +30,7 @@
                   </div>
 
                   <div class="form-group col-sm-6 mt-3">
-                      <label for="gradelevel" class="mr-4">Yearlevel:</label>
+                      <label for="gradelevel" class="mr-4">Gradelevel:</label>
                       <select name="user_id" id="service_type" class="custom-select ml-2 w-75" disabled data-style="select-with-transition" title="Select Gradelevel" >
 
                       @foreach (  )
@@ -39,6 +39,11 @@
                       </select>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#"></a>
+                  </div>
+
+                  <div class="form-group col-sm-6 ml-auto">
+                      <label for="contact">Contact:</label>
+                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Contact" name="contact" value="{{  }}" >
                   </div>
 
                    <div class="form-group col-sm-6 mt-3">

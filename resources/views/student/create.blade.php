@@ -26,6 +26,43 @@ extends('layouts.master')
                         <label for="lname">Lastname:</label>
                         <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Lastname" name="lname" >
                     </div>
+
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="gradelevel" class="mr-4">Gradelevel:</label>
+                        <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
+                        @foreach(  )
+                            <option value="{{  }}">Grade 7</option>
+                            <option value="{{  }}">Grade 8</option>
+                            <option value="{{  }}">Grade 9</option>
+                            <option value="{{  }}">Grade 10</option>
+                         @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="advisory" class="mr-4">Advisory:</label>
+                        <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
+                        @foreach(  )
+                            <option value="{{  }}">Einstein</option>
+                            <option value="{{  }}">Archimedes</option>
+                            <option value="{{  }}">Diamond</option>
+                            <option value="{{  }}">Amethyst</option>
+                            <option value="{{  }}">Emerald</option>
+                            <option value="{{  }}">Jade</option>
+                            <option value="{{  }}">Jasper</option>
+                            <option value="{{  }}">Opal</option>
+                            <option value="{{  }}">Pearl</option>
+                            <option value="{{  }}">Moonstone</option>
+                            <option value="{{  }}">Ruby</option>
+                            <option value="{{  }}">Sapphire</option>
+                            <option value="{{  }}">Tektite</option>
+                            <option value="{{  }}">Topaz</option>
+                            <option value="{{  }}">Tormaline</option>
+                            <option value="{{  }}">Turquoise</option>
+                            <option value="{{  }}">Zircon</option>
+                        @endforeach
+                        </select>
+                    </div>
                     
                 </div>
 

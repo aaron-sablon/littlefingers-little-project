@@ -45,12 +45,20 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>{{  }}</td>
                             <td>
                                 <a href="{{ route('', ) }}">{{  }}</a>
                             </td>
-                            <td class="text-center">
-                                <a href="{{route('', )}}" class="text-success fa fa-angle-double-right mr-2"></a>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
                             </td>
                         </tr>
                     @endforeach

@@ -11,7 +11,7 @@
                         <li class="list-inline-item"><h4 class="text-secondary">View Students</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
-                        <a  class="btn btn-info btn-block" href="{{route('')}}" role="button">View Professors</a>
+                        <a  class="btn btn-info btn-block" href="{{route('')}}" role="button">View Schedule</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,8 @@
                     <thead class="text-center thead-light">
                         <tr>
                             <th></th>
-                            <th scope="col">Student Name</th>
+                            <th scope="col">Student Firstame</th>
+                            <th scope="col">Student Lastame</th>
                             <th scope="col">Gradelevel</th>
                             <th scope="col">Section</th>
                         </tr>
@@ -43,12 +44,18 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>{{  }}</td>
+
                             <td>
                                 <a href="{{ route('', ) }}">{{  }}</a>
                             </td>
-                            <td class="text-center">
-                                <a href="{{route('', )}}" class="text-success fa fa-angle-double-right mr-2"></a>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
                             </td>
                         </tr>
                     @endforeach

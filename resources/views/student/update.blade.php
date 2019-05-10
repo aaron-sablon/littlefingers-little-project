@@ -34,6 +34,9 @@
                       <select name="user_id" id="service_type" class="custom-select ml-2 w-75"  data-style="select-with-transition" title="Select Gradelevel" >
                       @foreach (  )
                           <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
                       @endforeach
                       </select>
                           <div class="dropdown-divider"></div>
@@ -44,6 +47,22 @@
                       <label for="contact" class="mr-4">Section:</label>
                       <select name="user_id" id="service_type" class="custom-select ml-2 w-75"  data-style="select-with-transition" title="Select Section" >
                       @foreach (  )
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
                           <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
                       @endforeach
                       </select>

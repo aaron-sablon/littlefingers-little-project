@@ -6,8 +6,8 @@
 
       <div class="container-fluid text-left my-2">     
           <ul class="list-inline mb-1">
-              <li class="list-inline-item"> <h2>Professor List</h2></li>
-              <li class="list-inline-item"><h4 class="text-secondary">Edit Professor</h4></li>
+              <li class="list-inline-item"> <h2>Schedule List</h2></li>
+              <li class="list-inline-item"><h4 class="text-secondary">Edit Schedule</h4></li>
           </ul>
       </div>
 
@@ -31,18 +31,34 @@
 
                   <div class="form-group col-sm-6 ml-auto">
                       <label for="room">Room No.:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Room Number" name="room" value="{{  }">
+                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Room Number" name="room" value="{{  }}">
                   </div>
 
                   <div class="form-group col-sm-6 ml-auto">
-                      <label for="professor">Professor No.:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Professor Number" name="professor" value="{{  }">
+                      <label for="Schedule">Schedule No.:</label>
+                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Schedule Number" name="Schedule" value="{{  }}">
                   </div>
 
                    <div class="form-group col-sm-6 mt-3">
                       <label for="section" class="mr-4">Section:</label>
                       <select name="user_id" id="service_type" class="custom-select ml-2 w-75"  data-style="select-with-transition" title="Select Section" >
                       @foreach (  )
+                      <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
+                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
                           <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
                       @endforeach
                       </select>

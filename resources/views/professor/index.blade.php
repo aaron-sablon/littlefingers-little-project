@@ -31,7 +31,8 @@
                     <thead class="text-center thead-light">
                         <tr>
                             <th></th>
-                            <th scope="col">Professor Name</th>
+                            <th scope="col">Professor Firstame</th>
+                            <th scope="col">Professor Lastame</th>
                             <th scope="col">Advisory</th>
                             <th scope="col">Contact Number</th>
                         </tr>
@@ -43,13 +44,20 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>{{  }}</td>
                             <td>
                                 <a href="{{ route('', ) }}">{{  }}</a>
                             </td>
-                            <td class="text-center">
-                                <a href="{{route('', )}}" class="text-success fa fa-angle-double-right mr-2"></a>
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>                         
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
                             </td>
+                           
+                            <td>
+                                <a href="{{ route('', ) }}">{{  }}</a>
+                            </td>
+                        
                         </tr>
                     @endforeach
                     </tbody>
