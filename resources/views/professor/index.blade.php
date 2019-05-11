@@ -11,7 +11,7 @@
                         <li class="list-inline-item"><h4 class="text-secondary">View Professors</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
-                        <a  class="btn btn-info btn-block" href="{{route('')}}" role="button">View Students</a>
+                        <a  class="btn btn-info btn-block" href="{{route('student.index')}}" role="button">View Students</a>
                     </div>
                 </div>
             </div>
@@ -31,33 +31,27 @@
                     <thead class="text-center thead-light">
                         <tr>
                             <th></th>
-                            <th scope="col">Professor Firstame</th>
-                            <th scope="col">Professor Lastame</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
                             <th scope="col">Advisory</th>
                             <th scope="col">Contact Number</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach(  )
+                    @foreach( $professors as $prof  )
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>                         
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                           
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                        
+                            <td>{{ $prof->fname }}</td>
+                            <td>{{ $prof->lname }}</td>                         
+                            <td>{{ $prof->section->name }}</td>
+                            <td>{{ $prof->contact }}</td>
+                            <td class="text-center">
+		      				<a href="{{route('albums.show', $album->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      			</td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -14,14 +14,14 @@
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('', ) }}" method="post" class="form-inline">
+          <form action="{{ route('room.update', $room->id ) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('PUT')             
               <div class="row border-bottom border-top border-success py-3 my-2">
                  
                  <div class="form-group col-sm-6">
                         <label for="name" >Name:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Name" name="name" value="{{  }}">
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Name" name="name" value="{{ $room->name  }}">
                  </div>
                  
               </div>

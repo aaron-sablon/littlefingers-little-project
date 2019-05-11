@@ -23,19 +23,42 @@ class ProfessorsController extends Controller
             'token'                 => null,
         ]; 
     }
-    //these functions are not complete yet
-    //create; done
-    //update;done
-    //delete;done
-    //index;done
-    //show;done
-    //restore;done
     
+
+    //index page 
+
+    public function index(){
+    	$professors = Professor::paginate(10);
+
+    	$this->params['professors'] = $professors;
+    	// // dd($users->albums());
+    	 return view('professor.index', $this->params);
+    }
+
+    //show the professors tab
+    public function show($id){
+        $professors = Professor::find($id);
+        $this->params=['professor' => $professor];
+
+        // dd( $albums->user->id);
+        return view('professor.show', $this->params);
+
+    }
+
+    //undo delete from databse
+    public function restore(Request $request, $id){
+        $professors = Professor::onlyTrashed()->find($id);
+        $professors->restore();
+        //no route yet
+        return redirect()->route('professor.index')->with('Success','Professor was restored.');
+    }
+
+    //CRUDE
     public function create(){
     	$professors = Professor::all();
         $this->params['professors'] = $professors;
         //no route yet
-        return view('', $this->params);
+        return view('professor.create', $this->params);
 
     }
 
@@ -66,7 +89,7 @@ class ProfessorsController extends Controller
 
         $this->params['msg']='Information updated successfully.';
         //no route yet
-        return redirect()->route('')->with($this->params);
+        return redirect()->route('professor.index')->with($this->params);
 
     }
 
@@ -76,54 +99,10 @@ class ProfessorsController extends Controller
 
         $this->params['msg']='Professor was removed successfully.';
         //no route yet
-        return redirect()->route('')->with($this->params);
+        return redirect()->route('professor.index')->with($this->params);
 
     }
 
     //end of CRUDE
-
-
-    //other needed functions
-
-    //index page 
-
-    public function index(){
-        // $album=Album::with('user')->find();
-        // dd($album->user()->id);
-    	$professors = Professor::paginate(10);
-
-    	$this->params['professors'] = $professors;
-    	// // dd($users->albums());
-    	 return view('professors.index', $this->params);
-    }
-
-    //show the professors tab
-     public function show($id){
-        $professors = Professor::find($id);
-        $this->params=['professor' => $professor];
-
-        // dd( $albums->user->id);
-        //no rout yet
-        return view('', $this->params);
-
-    }
-
-
-    //edit the professors tab
-    public function edit($id){
-        $professors = Professor::find($id);
-        $this->params=['professors'=>$professors];
-        //no route yet
-        return view('', $this->params);
-    }
-
-    //undo delete from databse
-    public function restore(Request $request, $id){
-        $professors = Professor::onlyTrashed()->find($id);
-        $professors->restore();
-        //no route yet
-        return redirect()->route('')->with('Success','Professor was restored.');
-
-    }
 
 }

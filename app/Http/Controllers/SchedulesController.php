@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Schedule;
+use App\Subject;
+use App\Time;
+use App\Room;
+use App\Professor;
+use App\Section;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -22,13 +28,75 @@ class SchedulesController extends Controller
             'token'                 => null,
         ]; 
     }
+    public function index(){
+        $schedules = Schedule::paginate(10);
+        $this->params['schedules'] = $schedules;
+        //dd($users);
+         return view('schedule.index', $this->params);
+    }
 
+    public function show($id) {
+
+        $subjects = Schedule::find($id)->subjects;
+        $times = Schedule::find($id)->times;
+        $rooms = Schedule::find($id)->rooms;
+        $professors = Schedule::find($id)->professors;
+        $sections = Schedule::find($id)->sections;
+        $schedules = Schedule::find($id);
+        $this->params=[
+            'subjects' => $subjects,
+            'times' => $albums,
+            'rooms' => $rooms,
+            'professors' => $professors,
+            'sections' => $sections,
+            'schedules' => $schedules
+        ];
+        //dd( $schedules->subjects->name);
+        return view('schedule.show', $this->params);
+    }
+
+    //undo delete from databse
+    public function restore(Request $request, $id){
+        $schedules = Schedule::onlyTrashed()->find($id);
+        $schedules->restore();
+        return redirect()->route('schedule.index')->with('Success','Information restored.');
+    }    
+
+    //CRUDE
      public function create(){
         $schedules = Schedule::all();
         $this->params['schedules'] = $schedules;
         //no route yet
-        return view('', $this->params);
+        return view('schedule.create', $this->params);
+    }
+    //NEED FOR CREATE
+    //EDIT
+    public function store(Request $request){
 
+        $rules=Schedule::$rules;
+        $validator = Validator::make(
+            Input::all(),
+            $rules
+        );
+
+        // If validator fails.
+        if ( $validator->fails() ) {
+            
+            $error_messages = $validator->messages()->getMessages();
+            $this->params['error'] = true;
+            $this->params['msg'] = 'Form validation error. Please fix.';
+            $this->params['form_errors'] = $error_messages;
+
+            return redirect()->back()->with($this->params);
+        }
+        $schedules= new Schedule;
+        $schedules->name =INPUT::get('name');
+        
+        $schedules->save();
+        $this->params['msg']='Room was created successfully.';
+
+        return redirect()->route('schedule.index')
+                        ->with( $this->params);
     }
 
     public function update(Request $request, $id){
@@ -56,9 +124,8 @@ class SchedulesController extends Controller
         
         $schedules->save();
 
-        $this->params['msg']='Information updated successfully.';
-        //no route yet
-        return redirect()->route('')->with($this->params);
+        $this->params['msg']='Schedule updated successfully.';
+        return redirect()->route('schedule.index')->with($this->params);
 
     }
 
@@ -68,39 +135,8 @@ class SchedulesController extends Controller
 
         $this->params['msg']='Schedule was removed successfully.';
         //no route yet
-        return redirect()->route('')->with($this->params);
+        return redirect()->route('schedule.index')->with($this->params);
 
     }
-
     //end of CRUDE
-
-     public function show($id) {
-
-        $subjects = Schedule::find($id)->subjects;
-        $times = Schedule::find($id)->times;
-        $rooms = Schedule::find($id)->rooms;
-        $professors = Schedule::find($id)->professors;
-        $sections = Schedule::find($id)->sections;
-        $schedules = Schedule::find($id);
-        $this->params=[
-            'subjects' => $subjects,
-            'times' => $albums,
-            'rooms' => $rooms,
-            'professors' => $professors,
-            'sections' => $sections,
-            'schedules' => $schedules
-        ];
-
-        dd( $schedules->subjects->name);
-
-        //no view yet
-                return view('schedule.show', $this->params);
-
-    }
-
-    public function index($id){
-        $students=Students::with('schedule')->find();
-        dd($students->schedule()->fname);
-    }
-
 }
