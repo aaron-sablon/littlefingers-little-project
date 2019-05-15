@@ -11,7 +11,7 @@
                         <li class="list-inline-item"><h4 class="text-secondary">View Schedule</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
-                        <a  class="btn btn-info btn-block" href="{{route('')}}" role="button">View Students</a>
+                        <a  class="btn btn-info btn-block" href="{{route('students.index')}}" role="button">View Students</a>
                     </div>
                 </div>
             </div>
@@ -36,30 +36,26 @@
                             <th scope="col">Room</th>
                             <th scope="col">Professor</th>
                             <th scope="col">Section</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach(  )
+                    @foreach( $schedules as $sched )
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
+                            <td>{{ $sched->sub->name }}</td>
+                            <td>{{ $sched->time->slot }}</td>
+                            <td>{{ $sched->room->name }}</td>
+                            <td>{{ $sched->prof->fname. " " . $sched->prof->lname }}</td>
+                            <td>{{ $sched->sec->name }}</td>
+                            <td class="text-center">
+		      				<a href="{{route('schedules.show', $sched->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      			</td>
+
+                           
                         </tr>
                     @endforeach
                     </tbody>
@@ -70,12 +66,12 @@
     
                 <div class="row">                   
                     <div class="col-sm-2  mt-4">
-                        <a  class="btn btn-success btn-block" href="{{route('')}}" role="button">Add</a>
+                        <a  class="btn btn-success btn-block" href="{{route('schedules.create')}}" role="button">Add</a>
                     </div>
                      
                     <div class="col-sm-10  mt-4">
                         <div class="pagination justify-content-end">
-                            {{ () }}
+                            {{ $schedules->links() }}
                         </div>
                     </div>
                 </div>

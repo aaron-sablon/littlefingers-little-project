@@ -76,10 +76,10 @@ class SpecializationsController extends Controller
         $specializations= new Specialization;
         $specializations->name =INPUT::get('name');
         
-        $rooms->save();
+        $specializations->save();
         $this->params['msg']='Specialization was created successfully.';
 
-        return redirect()->route('specialization.index')
+        return redirect()->route('specializations.index')
                         ->with( $this->params);
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Subjects;
+use App\Subject;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -53,7 +53,7 @@ class SubjectsController extends Controller
         $subjects = Subject::all();
         $this->params['subjects'] = $subjects;
         //no route yet
-        return view('', $this->params);
+        return view('subject.create', $this->params);
     }
     //neccesary for create
     public function store(Request $request){

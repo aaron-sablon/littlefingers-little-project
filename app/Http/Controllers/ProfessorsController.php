@@ -59,7 +59,40 @@ class ProfessorsController extends Controller
         $this->params['professors'] = $professors;
         //no route yet
         return view('professor.create', $this->params);
+    }
 
+    public function store(Request $request){
+
+        $rules=Professor::$rules;
+        $validator = Validator::make(
+            Input::all(),
+            $rules
+        );
+
+        // If validator fails.
+        if ( $validator->fails() ) {
+            
+            $error_messages = $validator->messages()->getMessages();
+            $this->params['error'] = true;
+            $this->params['msg'] = 'Form validation error. Please fix.';
+            $this->params['form_errors'] = $error_messages;
+
+            return redirect()->back()->with($this->params);
+        }
+        $professors= new Professor;
+        $professors->id =INPUT::get('id');
+        $professors->fname =INPUT::get('fname');
+        $professors->lname =INPUT::get('lname');
+        $professors->contact =INPUT::get('contact');
+        $professors->advisory =INPUT::get('advisory');
+       
+
+        
+        $professors->save();
+        $this->params['msg']='Room was created successfully.';
+
+        return redirect()->route('professor.index')
+                        ->with( $this->params);
     }
 
     public function update(Request $request, $id){

@@ -13,7 +13,7 @@
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('', ) }}" method="post" class="form-inline">
+          <form action="{{ route('sections.destroy', $section->id ) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('DELETE')
            

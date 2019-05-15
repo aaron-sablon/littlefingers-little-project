@@ -11,7 +11,7 @@
                         <li class="list-inline-item"><h4 class="text-secondary">View Professors</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
-                        <a  class="btn btn-info btn-block" href="{{route('student.index')}}" role="button">View Students</a>
+                        <a  class="btn btn-info btn-block" href="{{route('students.index')}}" role="button">View Students</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                             <td>{{ $prof->section->name }}</td>
                             <td>{{ $prof->contact }}</td>
                             <td class="text-center">
-		      				<a href="{{route('albums.show', $album->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      				<a href="{{route('professors.show', $professors->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>
                         </tr>
                     @endforeach
@@ -62,12 +62,12 @@
     
                 <div class="row">                   
                     <div class="col-sm-2  mt-4">
-                        <a  class="btn btn-success btn-block" href="{{route('')}}" role="button">Add</a>
+                        <a  class="btn btn-success btn-block" href="{{route('professors.create')}}" role="button">Add</a>
                     </div>
                      
                     <div class="col-sm-10  mt-4">
                         <div class="pagination justify-content-end">
-                            {{ () }}
+                            {{ $professors->links() }}
                         </div>
                     </div>
                 </div>

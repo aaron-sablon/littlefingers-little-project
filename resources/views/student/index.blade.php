@@ -11,7 +11,7 @@
                         <li class="list-inline-item"><h4 class="text-secondary">View Students</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
-                        <a  class="btn btn-info btn-block" href="{{route('')}}" role="button">View Schedule</a>
+                        <a  class="btn btn-info btn-block" href="{{route('schedules.index')}}" role="button">View Schedule</a>
                     </div>
                 </div>
             </div>
@@ -31,32 +31,28 @@
                     <thead class="text-center thead-light">
                         <tr>
                             <th></th>
-                            <th scope="col">Student Firstame</th>
-                            <th scope="col">Student Lastame</th>
-                            <th scope="col">Gradelevel</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Grade</th>
                             <th scope="col">Section</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach(  )
+                    @foreach( $students as $stu )
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
 
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
+                            <td>{{ $stu->fname. " " . $stu->lname }}</td>
+                            <td></td>
+                            <td></td>
+                            
+                            
+                            <td class="text-center">
+		      				<a href="{{route('students.show', $stu->lrn)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      			</td>   
                         </tr>
                     @endforeach
                     </tbody>
@@ -67,12 +63,12 @@
     
                 <div class="row">                   
                     <div class="col-sm-2  mt-4">
-                        <a  class="btn btn-success btn-block" href="{{route('')}}" role="button">Add</a>
+                        <a  class="btn btn-success btn-block" href="{{route('students.create')}}" role="button">Add</a>
                     </div>
                      
                     <div class="col-sm-10  mt-4">
                         <div class="pagination justify-content-end">
-                            {{ () }}
+                            {{ $students->links() }}
                         </div>
                     </div>
                 </div>

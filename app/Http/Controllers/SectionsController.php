@@ -75,12 +75,13 @@ class SectionsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $sections= new Section;
+        $sections->grade=INPUT::get('section_grade');
         $sections->name =INPUT::get('name');
         
         $sections->save();
         $this->params['msg']='Section was created successfully.';
 
-        return redirect()->route('section.index')
+        return redirect()->route('sections.index')
                         ->with( $this->params);
     }
 

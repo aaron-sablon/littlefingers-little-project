@@ -11,7 +11,7 @@
                         <li class="list-inline-item"><h4 class="text-secondary">View Time</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
-                        <a  class="btn btn-info btn-block" href="{{route('')}}" role="button">View Students</a>
+                        <a  class="btn btn-info btn-block" href="{{route('schedules.index')}}" role="button">View Schedule</a>
                     </div>
                 </div>
             </div>
@@ -31,20 +31,21 @@
                     <thead class="text-center thead-light">
                         <tr>
                              <th></th>
-                            <th scope="col">Time</th>
+                            <th scope="col">Slot</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach(  )
+                    @foreach( $times as $t )
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>                    
-                            <td>
-                                <a href="{{ route('', ) }}">{{  }}</a>
-                            </td>
-                           
+                            <td>{{  $t->slot }}</td>
+                            <td class="text-center">
+		      				<a href="{{route('times.show', $t->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      			</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -55,12 +56,12 @@
     
                 <div class="row">                   
                     <div class="col-sm-2  mt-4">
-                        <a  class="btn btn-success btn-block" href="{{route('')}}" role="button">Add</a>
+                        <a  class="btn btn-success btn-block" href="{{route('times.create')}}" role="button">Add</a>
                     </div>
                      
                     <div class="col-sm-10  mt-4">
                         <div class="pagination justify-content-end">
-                            {{ () }}
+                            {{ $times->links() }}
                         </div>
                     </div>
                 </div>

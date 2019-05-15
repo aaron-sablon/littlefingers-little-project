@@ -13,7 +13,7 @@
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('', ) }}" method="post" class="form-inline">
+          <form action="{{ route('professors.destroy',$professors->id ) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('DELETE')
            
@@ -51,7 +51,7 @@
                       <label for="advisory" class="mr-4">Advisory:</label>
                       <select name="user_id" id="service_type" class="custom-select ml-2 w-75" disabled data-style="select-with-transition" title="Select Advisory" >
 
-                      @foreach (  )
+                      @foreach ( $professors as $prof  )
                           <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
                       @endforeach
                       </select>
@@ -64,11 +64,11 @@
               <div class="container">
                   <div class="row my-3">
                       <div class="col-sm-3">
-                          <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                          <a  href="{{ route('professor.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                       </div>
 
                       <div class="col-sm-3">
-                          <a  href="{{ route('', ) }}" role="button" class="btn btn-success btn-block">Edit</a>
+                          <a  href="{{ route('professor.update', $professors->id ) }}" role="button" class="btn btn-success btn-block">Edit</a>
                       </div>
 
                   </div>

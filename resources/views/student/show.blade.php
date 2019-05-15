@@ -13,7 +13,7 @@
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('', d) }}" method="post" class="form-inline">
+          <form action="{{ route('student.destroy', $student->id ) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('DELETE')
            
@@ -21,17 +21,17 @@
 
                   <div class="form-group col-sm-6">
                       <label for="fname" >Firstname:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Firstname" name="fname" value="{{  }}">
+                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Firstname" name="fname" value="{{ $students->fname }}">
                   </div>
             
                   <div class="form-group col-sm-6 ml-auto">
                       <label for="lname">Lastname:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Lastname" name="lname" value="{{  }}" >
+                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Lastname" name="lname" value="{{ $students->lname }}" >
                   </div>
 
                   <div class="form-group col-sm-6 mt-3">
-                      <label for="gradelevel" class="mr-4">Gradelevel:</label>
-                      <select name="user_id" id="service_type" class="custom-select ml-2 w-75" disabled data-style="select-with-transition" title="Select Gradelevel" >
+                      <label for="gradelevel" class="mr-4">Grade:</label>
+                      <select name="user_id" id="service_type" class="custom-select ml-2 w-75" disabled data-style="select-with-transition" title="Select Grade" >
 
                       @foreach (  )
                           <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
@@ -46,7 +46,7 @@
 
                    <div class="form-group col-sm-6 mt-3">
                       <label for="section" class="mr-4">Section:</label>
-                      <select name="user_id" id="service_type" class="custom-select ml-2 w-75" disabled data-style="select-with-transition" title="Select section" >
+                      <select name="user_id" id="service_type" class="custom-select ml-2 w-75" disabled data-style="select-with-transition" title="Select Section" >
 
                       @foreach (  )
                           <option value="{{  }}" {{  }}> {{  }} {{  }}</option>

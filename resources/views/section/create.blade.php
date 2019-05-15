@@ -12,26 +12,26 @@
       <!-- -->
      
         <div class="container">
-            <form action="{{route('')}}" method="post" class="form-inline">
+            <form action="{{route('sections.store')}}" method="post" class="form-inline">
             {{csrf_field()}}
  
                 <div class="row border-bottom border-top border-success py-3 my-2">
 
                     <div class="form-group col-sm-6 mt-3">
                         <label for="gradelevel" class="mr-4">Gradelevel:</label>
-                        <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
-                        @foreach(  )
-                            <option value="{{  }}">Grade 7</option>
-                            <option value="{{  }}">Grade 8</option>
-                            <option value="{{  }}">Grade 9</option>
-                            <option value="{{  }}">Grade 10</option>
-                         @endforeach
+                        <select name="section_grade" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
+                        
+                            <option value="7">Grade 7</option>
+                            <option value="8">Grade 8</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                         
                         </select>
                     </div>
 
-                    <div class="form-group col-sm-6">
-                        <label for="section" >Section:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Section" name="section">
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="section" class="mr-4">Section:</label>
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Section" name="name">
                     </div>
 
                 </div>
@@ -39,7 +39,7 @@
                 <div class="container">
                     <div class="row my-3">
                         <div class="col-sm-3">
-                            <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                            <a  href="{{ route('sections.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                         </div>
 
                         <div class="col-sm-3 ml-auto">
