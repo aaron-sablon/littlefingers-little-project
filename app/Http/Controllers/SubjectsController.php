@@ -80,7 +80,7 @@ class SubjectsController extends Controller
         $subjects->save();
         $this->params['msg']='Student created successfully.';
 
-        return redirect()->route('subject.index')
+        return redirect()->route('subjects.index')
                         ->with( $this->params);
     }
     

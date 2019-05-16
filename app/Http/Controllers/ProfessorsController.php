@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Professor;
+use App\Section;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -55,9 +56,8 @@ class ProfessorsController extends Controller
 
     //CRUDE
     public function create(){
-    	$professors = Professor::all();
-        $this->params['professors'] = $professors;
-        //no route yet
+        $sections = Section::all();
+        $this->params['sections'] = $sections;
         return view('professor.create', $this->params);
     }
 
@@ -80,7 +80,7 @@ class ProfessorsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $professors= new Professor;
-        $professors->id =INPUT::get('id');
+        //$professors->id =INPUT::get('id');
         $professors->fname =INPUT::get('fname');
         $professors->lname =INPUT::get('lname');
         $professors->contact =INPUT::get('contact');

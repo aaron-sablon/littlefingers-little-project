@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use App\Section;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -73,9 +74,10 @@ class StudentsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $students= new Student;
-        $students->lrn =INPUT::get('lrn');
+        //$students->lrn =INPUT::get('lrn');
         $students->fname =INPUT::get('fname');
         $students->lname =INPUT::get('lname');
+        $students->grade =INPUT::get('gradelevel');
         $students->section_id =INPUT::get('section_id');
         $students->spec_id =INPUT::get('spec_id');
         

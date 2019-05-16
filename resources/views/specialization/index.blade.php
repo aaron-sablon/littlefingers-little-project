@@ -30,7 +30,8 @@
                 <table class="table table-bordered">
                     <thead class="text-center thead-light">
                         <tr>
-                             <th></th>
+                            <th></th>
+                            <th scope="col">Grade</th>
                             <th scope="col">Specialization</th>
                             <th scope="col">Action</th> 
                         </tr>
@@ -41,8 +42,9 @@
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
-                            </td>                    
-                            <td>{{  $spec->name }}</td>
+                            </td> 
+                            <td class="text-center">{{ $spec->grade }}</td>                   
+                            <td class="text-center">{{ $spec->name }}</td>
                             <td class="text-center">
 		      				<a href="{{route('specializations.show', $spec->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>

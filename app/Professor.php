@@ -43,8 +43,8 @@ class Professor extends Authenticatable
     public static $rules = array(
         'fname'		=> 'required|min:1|max:50',
         'lname'		=> 'required|min:2|max:50',
-        'advisory'	=> 'required|min:2|max:50',
-        'contact'	=> 'required|min:2|max:50'
+        'advisory'	=> 'required|min:1|max:50',
+        'contact'	=> 'required|min:1|max:50'
         
     );
 
@@ -52,6 +52,10 @@ class Professor extends Authenticatable
     
     public function schedule() {
     	return $this-> belongsTo('App\Schedule', 'prof_id', 'id');
+    }
+
+    public function sections(){
+        return $this-> hasMany('App\Section', 'professor_id', 'id');
     }
 
      

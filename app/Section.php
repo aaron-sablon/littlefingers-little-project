@@ -21,11 +21,11 @@ class Section extends Model
 	}
 
 	public function student(){
-		return $this->belongsTo('App\Student', 'section_id', 'id');
+		return $this->hasMany('App\Student', 'section_id', 'id');
 	}
 
 	//don't know if this will work
 	public function professor(){
-		return $this->belongsTo('App\Professor', 'advisory', 'name');
+		return $this->belongsTo('App\Professor', 'advisory', 'id');
 	}
 }

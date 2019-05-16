@@ -12,7 +12,8 @@ class Specialization extends Model
     protected $dates =['deleted_at'];
 
     public static $rules = array(
-    	'name'		=> 'required|min:2|max:10'
+        'name'		=> 'required|min:2|max:10',
+        'grade'     => 'required|min:1|max:2'
     );
 
     public function student(){

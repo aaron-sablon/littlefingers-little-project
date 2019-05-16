@@ -16,12 +16,22 @@
             {{csrf_field()}}
  
                 <div class="row border-bottom border-top border-success py-3 my-2">
-
-                    <div class="form-group col-sm-6">
-                        <label for="name" >Name:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Name" name="name">
+                <div class="form-group col-sm-6 mt-3">
+                        <label for="gradelevel" class="mr-4">Grade level:</label>
+                        <select name="grade" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
+                        
+                            <option value="7">Grade 7</option>
+                            <option value="8">Grade 8</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                         
+                        </select>
                     </div>
 
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="name" class="mr-4" >Name:</label>
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Name" name="name">
+                    </div>
                 </div>
 
                 <div class="container">

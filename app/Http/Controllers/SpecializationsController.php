@@ -74,7 +74,8 @@ class SpecializationsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $specializations= new Specialization;
-        $specializations->name =INPUT::get('name');
+        $specializations->grade = INPUT::get('grade'); 
+        $specializations->name = INPUT::get('name');
         
         $specializations->save();
         $this->params['msg']='Specialization was created successfully.';
@@ -101,6 +102,7 @@ class SpecializationsController extends Controller
            return redirect()->back()->with($this->params);
        }
        $specializations = Specialization::find($id);
+       $specializations->grade = INPUT::get('grade'); 
        $specializations->name =INPUT::get('name');
        
        $specializations->save();

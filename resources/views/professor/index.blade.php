@@ -31,8 +31,7 @@
                     <thead class="text-center thead-light">
                         <tr>
                             <th></th>
-                            <th scope="col">Firstname</th>
-                            <th scope="col">Lastname</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Advisory</th>
                             <th scope="col">Contact Number</th>
                             <th scope="col">Action</th>
@@ -45,8 +44,7 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>{{ $prof->fname }}</td>
-                            <td>{{ $prof->lname }}</td>                         
+                            <td>{{ $prof->fname. " " . $prof->lname  }}</td>                       
                             <td>{{ $prof->section->name }}</td>
                             <td>{{ $prof->contact }}</td>
                             <td class="text-center">

@@ -19,7 +19,7 @@
 
                     <div class="form-group col-sm-6">
                         <label for="code" >Name:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Name" name="code">
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Subject Code" name="code">
                     </div>
 
                 </div>

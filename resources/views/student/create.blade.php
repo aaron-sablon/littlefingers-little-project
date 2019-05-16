@@ -12,7 +12,7 @@ extends('layouts.master')
       <!-- -->
      
         <div class="container">
-            <form action="{{route('')}}" method="post" class="form-inline">
+            <form action="{{route('students.store')}}" method="post" class="form-inline">
             {{csrf_field()}}
  
                 <div class="row border-bottom border-top border-success py-3 my-2">
@@ -29,37 +29,21 @@ extends('layouts.master')
 
                     <div class="form-group col-sm-6 mt-3">
                         <label for="gradelevel" class="mr-4">Gradelevel:</label>
-                        <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
-                        @foreach(  )
-                            <option value="{{  }}">Grade 7</option>
-                            <option value="{{  }}">Grade 8</option>
-                            <option value="{{  }}">Grade 9</option>
-                            <option value="{{  }}">Grade 10</option>
-                         @endforeach
+                        <select name="grade" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
+                    
+                            <option value="">Grade 7</option>
+                            <option value="">Grade 8</option>
+                            <option value="">Grade 9</option>
+                            <option value="">Grade 10</option>
+                 
                         </select>
                     </div>
 
                     <div class="form-group col-sm-6 mt-3">
-                        <label for="advisory" class="mr-4">Advisory:</label>
-                        <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
-                        @foreach(  )
-                            <option value="{{  }}">Einstein</option>
-                            <option value="{{  }}">Archimedes</option>
-                            <option value="{{  }}">Diamond</option>
-                            <option value="{{  }}">Amethyst</option>
-                            <option value="{{  }}">Emerald</option>
-                            <option value="{{  }}">Jade</option>
-                            <option value="{{  }}">Jasper</option>
-                            <option value="{{  }}">Opal</option>
-                            <option value="{{  }}">Pearl</option>
-                            <option value="{{  }}">Moonstone</option>
-                            <option value="{{  }}">Ruby</option>
-                            <option value="{{  }}">Sapphire</option>
-                            <option value="{{  }}">Tektite</option>
-                            <option value="{{  }}">Topaz</option>
-                            <option value="{{  }}">Tormaline</option>
-                            <option value="{{  }}">Turquoise</option>
-                            <option value="{{  }}">Zircon</option>
+                        <label for="section_id" class="mr-4">Section:</label>
+                        <select name="section_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
+                        @foreach( $sections as $section )
+                        <option value="{{ $section->id }}">{{ $section->name }}</option>
                         @endforeach
                         </select>
                     </div>
@@ -69,7 +53,7 @@ extends('layouts.master')
                 <div class="container">
                     <div class="row my-3">
                         <div class="col-sm-3">
-                            <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                            <a  href="{{ route('students.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                         </div>
 
                         <div class="col-sm-3 ml-auto">
