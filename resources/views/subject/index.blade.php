@@ -42,9 +42,9 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>                    
-                            <td>{{ $sub->name }}</td>
+                            <td>{{ $sub->code }}</td>
                             <td class="text-center">
-		      				<a href="{{route('subjects.show', $subjects->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      				<a href="{{route('subjects.show', $sub->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>
                            
                         </tr>

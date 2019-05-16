@@ -20,12 +20,16 @@ class Student extends Model
     //therefore no need for authentication
 
     public static $rules = array(
+        'lrn'       => 'required|min:12|max:12',
     	'fname'		=> 'required|min:2|max:50',
-    	'lname'		=> 'required|min:2|max:50'
+        'lname'		=> 'required|min:2|max:50',
+        'section_id'=> 'required|min:1|max:50',
+        'spec_id'   => 'required|min:1|max:50'
+
     );
 
 
-    //This is for relationships
+    //This is for relationships in database
     public function schedule(){
     	return $this->belongsTo('App\Schedule', 'student_id', 'id');
     }

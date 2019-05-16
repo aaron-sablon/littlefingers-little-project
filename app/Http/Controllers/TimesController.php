@@ -38,18 +38,18 @@ class TimesController extends Controller
             'times'=>$times
         ];
         //dd( $times);
-        return view('time.show', $this->params);
+        return view('times.show', $this->params);
     }
 
     //undo delete from databse
     public function restore(Request $request, $id){
         $times = Time::onlyTrashed()->find($id);
         $times->restore();
-        return redirect()->route('subject.index')->with('Success','Information restored.');
+        return redirect()->route('time.index')->with('Success','Information restored.');
     }    
     //CRUDE
     public function create(){
-        $times = Times::all();
+        $times = Time::all();
         $this->params['times'] = $times;
         return view('time.create', $this->params);
     }
@@ -73,7 +73,7 @@ class TimesController extends Controller
             return redirect()->back()->with($this->params);
         }
         $times= new Time;
-        $times->code =INPUT::get('slot');
+        $times->slot =INPUT::get('slot');
         
         $times->save();
         $this->params['msg']='Student created successfully.';

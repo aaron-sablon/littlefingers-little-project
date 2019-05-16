@@ -12,7 +12,7 @@ class Subject extends Model
     protected $dates = ['deleted_at'];
 
     public static $rules = array(
-		'name'		=>'required|min:2|max:20'
+		'code'		=>'required|min:2|max:20'
     );
 
     public function schedule(){
