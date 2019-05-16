@@ -31,5 +31,9 @@ class Schedule extends Model
     	return $this->hasMany('App\Section', 'section_id', 'id');
     }
 
+    public function student(){
+    	return $this->hasMany('App\Section', 'student_id', 'id');
+    }
+
 
 }

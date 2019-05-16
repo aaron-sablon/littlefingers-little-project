@@ -12,14 +12,14 @@
       <!-- -->
      
         <div class="container">
-            <form action="{{route('')}}" method="post" class="form-inline">
+            <form action="{{route('slots.store')}}" method="post" class="form-inline">
             {{csrf_field()}}
  
                 <div class="row border-bottom border-top border-success py-3 my-2">
 
                     <div class="form-group col-sm-6">
-                        <label for="time" >Time:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Time" name="time">
+                        <label for="slot" >Time:</label>
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Time" name="slot">
                     </div>
 
                 </div>
@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="row my-3">
                         <div class="col-sm-3">
-                            <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                            <a  href="{{ route('time.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                         </div>
 
                         <div class="col-sm-3 ml-auto">

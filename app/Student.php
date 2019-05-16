@@ -28,7 +28,7 @@ class Student extends Model
     );
 
 
-    //This is for relationships
+    //This is for relationships in database
     public function schedule(){
     	return $this->belongsTo('App\Schedule', 'student_id', 'id');
     }

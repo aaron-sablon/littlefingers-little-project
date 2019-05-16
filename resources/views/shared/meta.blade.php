@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
 <!-- This is local bootstrap -->
 
 <!-- <link rel="stylesheet" href="/home/sab/Downloads/bootstrap/css/bootstrap.min.css">

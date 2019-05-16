@@ -12,7 +12,7 @@
       <!-- -->
      
         <div class="container">
-            <form action="{{route('')}}" method="post" class="form-inline">
+            <form action="{{route('schedules.store')}}" method="post" class="form-inline">
             {{csrf_field()}}
  
                 <div class="row border-bottom border-top border-success py-3 my-2">
@@ -41,7 +41,7 @@
                         <label for="section" class="mr-4">Section:</label>
                         <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
                         @foreach(  )
-                            <option value="{{  }}">Einstein</option>
+                            <option value="Einstein">Einstein</option>
                             <option value="{{  }}">Archimedes</option>
                             <option value="{{  }}">Diamond</option>
                             <option value="{{  }}">Amethyst</option>
@@ -67,7 +67,7 @@
                 <div class="container">
                     <div class="row my-3">
                         <div class="col-sm-3">
-                            <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                            <a  href="{{ route('schedules.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                         </div>
 
                         <div class="col-sm-3 ml-auto">

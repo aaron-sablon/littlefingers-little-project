@@ -48,7 +48,7 @@
                             <td>{{ $prof->section->name }}</td>
                             <td>{{ $prof->contact }}</td>
                             <td class="text-center">
-		      				<a href="{{route('professors.show', $professors->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      				<a href="{{route('professors.show', $prof->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>
                         </tr>
                     @endforeach

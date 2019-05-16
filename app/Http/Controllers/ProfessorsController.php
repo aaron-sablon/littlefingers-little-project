@@ -80,7 +80,10 @@ class ProfessorsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $professors= new Professor;
+<<<<<<< HEAD
         //$professors->id =INPUT::get('id');
+=======
+>>>>>>> 019a96e9656129ae87907bd441ffce85f83d05c5
         $professors->fname =INPUT::get('fname');
         $professors->lname =INPUT::get('lname');
         $professors->contact =INPUT::get('contact');
@@ -91,7 +94,7 @@ class ProfessorsController extends Controller
         $professors->save();
         $this->params['msg']='Room was created successfully.';
 
-        return redirect()->route('professor.index')
+        return redirect()->route('professors.index')
                         ->with( $this->params);
     }
 

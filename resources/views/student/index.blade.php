@@ -7,7 +7,7 @@
             <div class="container-fluid text-left my-3 py-2 border-top border-bottom border-success"> 
                 <div class="row">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"> <h2>Professor List</h2></li>
+                        <li class="list-inline-item"> <h2>Students List</h2></li>
                         <li class="list-inline-item"><h4 class="text-secondary">View Students</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">

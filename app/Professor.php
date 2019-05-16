@@ -44,7 +44,11 @@ class Professor extends Authenticatable
         'fname'		=> 'required|min:1|max:50',
         'lname'		=> 'required|min:2|max:50',
         'advisory'	=> 'required|min:1|max:50',
+<<<<<<< HEAD
         'contact'	=> 'required|min:1|max:50'
+=======
+        'contact'	=> 'required|min:2|max:50'
+>>>>>>> 019a96e9656129ae87907bd441ffce85f83d05c5
         
     );
 

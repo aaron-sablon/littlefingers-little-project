@@ -81,6 +81,7 @@ class StudentsController extends Controller
         $students->section_id =INPUT::get('section_id');
         $students->spec_id =INPUT::get('spec_id');
         
+        
         $students->save();
         $this->params['msg']='Student created successfully.';
 
