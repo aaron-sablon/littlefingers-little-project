@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach( $specializations as $spec )
+                    
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
@@ -50,7 +50,7 @@
 		      			</td>
                            
                         </tr>
-                    @endforeach
+                   
                     </tbody>
                 </table>
             </div>

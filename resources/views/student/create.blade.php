@@ -36,15 +36,6 @@
 
                     <!-- <div class="form-group col-sm-6 mt-3">
                         <label for="gradelevel" class="mr-4">Gradelevel:</label>
-<<<<<<< HEAD
-                        <select name="grade" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
-                    
-                            <option value="">Grade 7</option>
-                            <option value="">Grade 8</option>
-                            <option value="">Grade 9</option>
-                            <option value="">Grade 10</option>
-                 
-=======
                         <select name="gradelevel" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
                             <option value="Grade 7">Grade 7</option>
                             <option value="Grade 8">Grade 8</option>
@@ -61,18 +52,10 @@
                             <option value="Diamond">Diamond</option>
                             <option value="Amethyst">Amethyst</option>
                             <option value="Emerald">Emerald</option>
->>>>>>> 019a96e9656129ae87907bd441ffce85f83d05c5
                         </select>
                     </div>
 
                     <div class="form-group col-sm-6 mt-3">
-<<<<<<< HEAD
-                        <label for="section_id" class="mr-4">Section:</label>
-                        <select name="section_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
-                        @foreach( $sections as $section )
-                        <option value="{{ $section->id }}">{{ $section->name }}</option>
-                        @endforeach
-=======
                         <label for="specialization" class="mr-4">Specialization:</label>
                         <select name="spec_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Specialization" >  
                             <option value="SSC">SSC</option>
@@ -85,7 +68,6 @@
                             <option value="Cookery">Cookery</option>
                             <option value="Dressmaking">Dressmaking</option>
                             <option value="Automotive">Automotive</option>
->>>>>>> 019a96e9656129ae87907bd441ffce85f83d05c5
                         </select>
                     </div>
                     
