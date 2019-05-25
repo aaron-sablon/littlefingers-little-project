@@ -34,8 +34,8 @@
                     </div>
 
                     <div class="form-group col-sm-6 mt-3">
-                        <label for="advisory" class="mr-4">Advisory:</label>
-                        <select name="advisory" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
+                        <label for="section_id" class="mr-4">Advisory:</label>
+                        <select name="section_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
                             <option value="">None</option>
                             @foreach($sections as $section) 
                             <option value="{{ $section->id }}">{{ $section->name }}</option>
@@ -54,7 +54,17 @@
                         <div class="col-sm-3 ml-auto">
                             <input type="submit" class="btn btn-success btn-block" name="addbtn" value="Add">
                         </div>
+                        </form>
                     </div>
+                            @if(
+                    session()->has('error') && session()->has('form_errors')
+                    )
+                    <div class="alert alert-danger">
+                    @foreach(session()->get('form_errors') as $error)
+                        <p>{{ $error[0] }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
+                @endif
                 </div>
-            </form>
         </div> 

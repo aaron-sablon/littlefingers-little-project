@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="row my-3">
                         <div class="col-sm-3">
-                            <a  href="{{ route('time.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                            <a  href="{{ route('slots.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                         </div>
 
                         <div class="col-sm-3 ml-auto">

@@ -8,7 +8,7 @@
                 <div class="row">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item"> <h2>Time List</h2></li>
-                        <li class="list-inline-item"><h4 class="text-secondary">View Time</h4></li>
+                        <li class="list-inline-item"><h4 class="text-secondary">View Timeslots</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
                         <a  class="btn btn-info btn-block" href="{{route('schedules.index')}}" role="button">View Schedule</a>
@@ -36,15 +36,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach( $slots as $t )
+                    @foreach( $times as $t )
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>                    
-                            <td>{{  $t->slots }}</td>
+                            <td>{{  $t->slot }}</td>
                             <td class="text-center">
-		      				<a href="{{route('time.show', $t->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      				<a href="{{route('slots.show', $t->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>
                         </tr>
                     @endforeach
@@ -61,7 +61,7 @@
                      
                     <div class="col-sm-10  mt-4">
                         <div class="pagination justify-content-end">
-                            {{ $slots->links() }}
+                            {{ $times->links() }}
                         </div>
                     </div>
                 </div>

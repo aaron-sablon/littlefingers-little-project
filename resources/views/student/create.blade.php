@@ -19,7 +19,7 @@
 
                 
                     <div class="form-group col-sm-6">
-                        <label for="fname" >LRN:</label>
+                        <label for="lrn" >LRN:</label>
                         <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="LRN" name="lrn">
                     </div>
 
@@ -54,7 +54,6 @@
                         @endforeach
                         </select>
                     </div>
-
                     <div class="form-group col-sm-6 mt-3">
                         <label for="spec_id" class="mr-4">Specialization:</label>
                         <select name="spec_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
@@ -63,6 +62,8 @@
                         @endforeach
                         </select>
                     </div>
+
+                     
                     
                 </div>
 
@@ -75,7 +76,17 @@
                         <div class="col-sm-3 ml-auto">
                             <input type="submit" class="btn btn-success btn-block" name="addbtn" value="Add">
                         </div>
+                        </form>
                     </div>
+                    @if(
+                    session()->has('error') && session()->has('form_errors')
+                    )
+                    <div class="alert alert-danger">
+                    @foreach(session()->get('form_errors') as $error)
+                        <p>{{ $error[0] }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
+                @endif
                 </div>
-            </form>
         </div> 

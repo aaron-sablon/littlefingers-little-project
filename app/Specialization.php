@@ -16,7 +16,11 @@ class Specialization extends Model
         'grade'     => 'required|min:1|max:2'
     );
 
+    // public function student(){
+    // 	return $this->belongsTo('App\Student', 'spec_id', 'id');
+    // }
+
     public function student(){
-    	return $this->belongsTo('App\Student', 'spec_id', 'id');
+    	return $this->hasMany('App\Student', 'spec_id', 'id');
     }
 }

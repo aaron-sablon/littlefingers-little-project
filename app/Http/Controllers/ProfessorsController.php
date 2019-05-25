@@ -32,7 +32,7 @@ class ProfessorsController extends Controller
     	$professors = Professor::paginate(10);
 
     	$this->params['professors'] = $professors;
-    	// // dd($users->albums());
+    	//dd($professors);
     	 return view('professor.index', $this->params);
     }
 
@@ -84,7 +84,7 @@ class ProfessorsController extends Controller
         $professors->fname =INPUT::get('fname');
         $professors->lname =INPUT::get('lname');
         $professors->contact =INPUT::get('contact');
-        $professors->advisory =INPUT::get('advisory');
+        $professors->section_id =INPUT::get('section_id');
        
 
         

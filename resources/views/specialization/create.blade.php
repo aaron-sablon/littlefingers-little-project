@@ -15,7 +15,7 @@
             <form action="{{route('specializations.store')}}" method="post" class="form-inline">
             {{csrf_field()}}
             <div class="row border-bottom border-top border-success py-3 my-2">
-            <div>
+            <!--<div>
                 <table class="table table-bordered">
                     <thead class="text-center thead-light">
                         <tr>
@@ -47,6 +47,15 @@
                         </tr>
                     </tbody>
                 </table>
+             </div>-->
+             <div class="form-group col-sm-6 mt-3">
+                <label for="grade" class="mr-4">Gradelevel:</label>
+                <select name="grade" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >            
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                </select>
             </div>
 
             <div class="form-group col-sm-6 mt-3">

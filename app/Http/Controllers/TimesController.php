@@ -27,18 +27,18 @@ class TimesController extends Controller
     public function index(){
         $times= Time::paginate(10);
         $this->params['times'] = $times;
-        //dd($students);
-         return view('time.index', $this->params);
+       //dd($times);
+         return view('slot.index', $this->params);
     }
 
     public function show($id){
         $times = Time::all();
        
         $this->params=[
-            'times'=>$times
+            'slots'=>$times
         ];
         //dd( $times);
-        return view('times.show', $this->params);
+        return view('slot.show', $this->params);
     }
 
     //undo delete from databse
@@ -50,8 +50,8 @@ class TimesController extends Controller
     //CRUDE
     public function create(){
         $times = Time::all();
-        $this->params['times'] = $times;
-        return view('time.create', $this->params);
+        $this->params['slots'] = $times;
+        return view('slot.create', $this->params);
     }
     //neccesary for create
     public function store(Request $request){
@@ -76,9 +76,9 @@ class TimesController extends Controller
         $times->slot =INPUT::get('slot');
         
         $times->save();
-        $this->params['msg']='Student created successfully.';
+        $this->params['msg']='Slot created successfully.';
 
-        return redirect()->route('time.index')
+        return redirect()->route('slots.index')
                         ->with( $this->params);
     }
 
@@ -107,7 +107,7 @@ class TimesController extends Controller
 
         $this->params['msg']='Information updated successfully.';
         //no route yet
-        return redirect()->route('time.index')->with($this->params);
+        return redirect()->route('slots.index')->with($this->params);
     }
 
     public function destroy($id){
