@@ -77,7 +77,8 @@ class SpecializationsController extends Controller
         }
         $specializations= new Specialization;
         $specializations->specialization_grade = INPUT::get('specialization_grade'); 
-        $specializations->name = INPUT::get('name');
+        $specializations->grade = INPUT::get('grade');
+        $specializations->specialization = INPUT::get('specialization');
         
         $specializations->save();
         $this->params['msg']='Specialization was created successfully.';
