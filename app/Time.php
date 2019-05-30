@@ -12,7 +12,7 @@ class Time extends Model
 	protected $dates =['deleted_at'];
 
 	public static $rules = array(
-		'slot'		=>'required|min:6|max:6'
+		'slot'		=>'required|min:5|max:8'
 	);
 
 	public function schedule(){

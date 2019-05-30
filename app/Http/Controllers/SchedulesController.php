@@ -38,14 +38,14 @@ class SchedulesController extends Controller
     public function show($id) {
 
         $subjects = Schedule::find($id)->subjects;
-        $times = Schedule::find($id)->times;
+        $times = Schedule::find($id)->slots;
         $rooms = Schedule::find($id)->rooms;
         $professors = Schedule::find($id)->professors;
         $sections = Schedule::find($id)->sections;
         $schedules = Schedule::find($id);
         $this->params=[
             'subjects' => $subjects,
-            'times' => $albums,
+            'slots' => $times,
             'rooms' => $rooms,
             'professors' => $professors,
             'sections' => $sections,

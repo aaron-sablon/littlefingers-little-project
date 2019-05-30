@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use App\Section;
+use App\Specialization;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -50,8 +51,10 @@ class StudentsController extends Controller
     }    
     //CRUDE
     public function create(){
-        $students = Student::all();
-        $this->params['students'] = $students;
+        $sections = Section::all();
+        $specializations = Specialization::all();
+        $this->params['sections'] = $sections;
+        $this->params['specializations'] = $specializations;
         return view('student.create', $this->params);
     }
     //neccesary for create
@@ -74,10 +77,10 @@ class StudentsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $students= new Student;
-        //$students->lrn =INPUT::get('lrn');
+        $students->lrn =INPUT::get('lrn');
+        $students->grade =INPUT::get('gradelevel');
         $students->fname =INPUT::get('fname');
         $students->lname =INPUT::get('lname');
-        $students->grade =INPUT::get('gradelevel');
         $students->section_id =INPUT::get('section_id');
         $students->spec_id =INPUT::get('spec_id');
         
@@ -85,7 +88,7 @@ class StudentsController extends Controller
         $students->save();
         $this->params['msg']='Student created successfully.';
 
-        return redirect()->route('student.index')
+        return redirect()->route('students.index')
                         ->with( $this->params);
     }
 

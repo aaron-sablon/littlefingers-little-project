@@ -18,9 +18,9 @@
                 <div class="row border-bottom border-top border-success py-3 my-2">
 
                 
-                <div class="form-group col-sm-6">
-                        <label for="lrn">LRN:</label>
-                        <input type="number" class="form-control mb-2 ml-auto w-75" placeholder="LRN" name="lrn">
+                    <div class="form-group col-sm-6">
+                        <label for="lrn" >LRN:</label>
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="LRN" name="lrn">
                     </div>
 
 
@@ -34,9 +34,10 @@
                         <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Lastname" name="lname" >
                     </div>
 
-                    <!-- <div class="form-group col-sm-6 mt-3">
+                     <div class="form-group col-sm-6 mt-3">
                         <label for="gradelevel" class="mr-4">Gradelevel:</label>
                         <select name="gradelevel" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
+<<<<<<< HEAD
                             <option value="Grade 7">Grade 7</option>
                             <option value="Grade 8">Grade 8</option>
                             <option value="Grade 9">Grade 9</option>
@@ -52,10 +53,19 @@
                             <option value="Diamond">Diamond</option>
                             <option value="Amethyst">Amethyst</option>
                             <option value="Emerald">Emerald</option>
+=======
+                    
+                            <option value="7">Grade 7</option>
+                            <option value="8">Grade 8</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                 
+>>>>>>> 989f077e1c5592689b56b319bc207e58519c5492
                         </select>
                     </div>
 
                     <div class="form-group col-sm-6 mt-3">
+<<<<<<< HEAD
                         <label for="specialization" class="mr-4">Specialization:</label>
                         <select name="spec_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Specialization" >  
                             <option value="SSC">SSC</option>
@@ -68,8 +78,25 @@
                             <option value="Cookery">Cookery</option>
                             <option value="Dressmaking">Dressmaking</option>
                             <option value="Automotive">Automotive</option>
+=======
+                        <label for="section_id" class="mr-4">Section:</label>
+                        <select name="section_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
+                        @foreach( $sections as $section )
+                        <option value="{{ $section->id }}">{{ $section->name }}</option>
+                        @endforeach
+>>>>>>> 989f077e1c5592689b56b319bc207e58519c5492
                         </select>
                     </div>
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="spec_id" class="mr-4">Specialization:</label>
+                        <select name="spec_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
+                        @foreach( $specializations as $spec )
+                        <option value="{{ $spec->id }}">{{ $spec->name }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+
+                     
                     
                 </div>
 
@@ -82,7 +109,17 @@
                         <div class="col-sm-3 ml-auto">
                             <input type="submit" class="btn btn-success btn-block" name="addbtn" value="Add">
                         </div>
+                        </form>
                     </div>
+                    @if(
+                    session()->has('error') && session()->has('form_errors')
+                    )
+                    <div class="alert alert-danger">
+                    @foreach(session()->get('form_errors') as $error)
+                        <p>{{ $error[0] }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
+                @endif
                 </div>
-            </form>
         </div> 

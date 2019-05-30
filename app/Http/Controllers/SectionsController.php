@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Section;
 use App\Professor;
+use App\Specialization;
 use App\Student;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -52,9 +53,8 @@ class SectionsController extends Controller
 
     //CRUDE here
     public function create(){
-        $sections = Section::all();
-        $this->params['sections'] = $sections;
-        //no route yet
+        $specializations = Specialization::all();
+        $this->params['specializations'] = $specializations;
         return view('section.create', $this->params);
     }
     //neccesary for create

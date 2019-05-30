@@ -20,9 +20,10 @@ class Student extends Model
     //therefore no need for authentication
 
     public static $rules = array(
-    	'fname'		    => 'required|min:2|max:50',
-        'lname'		    => 'required|min:2|max:50',
-        'gradelevel'    =>'required|min:2|max:20',
+        'lrn'           =>'required|min:2|max:50',
+    	'fname'		    =>'required|min:2|max:50',
+        'lname'		    =>'required|min:2|max:50',
+        'gradelevel'    =>'required|min:1|max:20',
         'spec_id'       =>'required|min:1|max:3',
         'section_id'    =>'required|min:1|max:3'
     );
@@ -33,7 +34,19 @@ class Student extends Model
     	return $this->belongsTo('App\Schedule', 'student_id', 'id');
     }
 
+    // public function section(){
+    //     return $this->hasOne('App\Section', 'section_id', 'id');
+    // }
+
+    // public function specialization(){
+    //     return $this->hasOne('App\Specialization', 'specialization_id', 'id');
+    // }
+
     public function section(){
         return $this->belongsTo('App\Section', 'section_id', 'id');
+    }
+
+    public function specialization(){
+        return $this->belongsTo('App\Specialization', 'spec_id', 'id');
     }
 }

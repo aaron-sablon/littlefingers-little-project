@@ -9,6 +9,16 @@ class Schedule extends Model
 {
     use SoftDeletes;
 
+    public static $rules = array(
+        'subject'		=> 'required|min:1|max:50',
+        'time'		    => 'required|min:2|max:50',
+        'room'	        => 'required|min:1|max:50',
+        'professor'	    => 'required|min:2|max:50',
+        'section'	    => 'required|min:2|max:50',
+        'student'	    => 'required|min:2|max:50'
+        
+    );
+
     protected $dates =['deleted_at'];
 
     public static $rules = array(

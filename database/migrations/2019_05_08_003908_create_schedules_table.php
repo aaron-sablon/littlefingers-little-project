@@ -15,6 +15,11 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->string('id');
+            $table->string('subject_id');
+            $table->string('time_id');
+            $table->string('room_id');
+            $table->string('prof_id');
+            $table->string('section_id');
             $table->timestamps();
             $table->softDeletes();
         });

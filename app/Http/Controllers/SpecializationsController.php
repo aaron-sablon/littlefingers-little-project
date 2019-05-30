@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Specialization;
+use App\Section;
+use App\Student;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;

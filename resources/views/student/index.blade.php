@@ -34,6 +34,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Grade</th>
                             <th scope="col">Section</th>
+                            <th scope="col">Specialization</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -44,17 +45,15 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-
                             <td>{{ $stu->fname. " " . $stu->lname }}</td>
-                            <td></td>
-                            <td></td>
-                            
-                            
+                            <td>{{ $stu->grade }}</td>
+                            <td>{{ $stu->section->name }}</td>
+                            <td>{{ $stu->specialization->name }}</td>
                             <td class="text-center">
 		      				<a href="{{route('students.show', $stu->lrn)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>   
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>
