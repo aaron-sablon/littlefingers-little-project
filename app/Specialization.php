@@ -13,7 +13,7 @@ class Specialization extends Model
 
     public static $rules = array(
         'name'		=> 'required|min:2|max:10',
-        'specialization'     => 'required|min:1|max:1'
+        'grade'     => 'required|min:1|max:2'
     );
 
     // public function student(){

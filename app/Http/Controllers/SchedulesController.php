@@ -38,14 +38,14 @@ class SchedulesController extends Controller
     public function show($id) {
 
         $subjects = Schedule::find($id)->subjects;
-        $times = Schedule::find($id)->slots;
+        $times = Schedule::find($id)->times;
         $rooms = Schedule::find($id)->rooms;
         $professors = Schedule::find($id)->professors;
         $sections = Schedule::find($id)->sections;
         $schedules = Schedule::find($id);
         $this->params=[
             'subjects' => $subjects,
-            'slots' => $times,
+            'times' => $albums,
             'rooms' => $rooms,
             'professors' => $professors,
             'sections' => $sections,
@@ -64,16 +64,8 @@ class SchedulesController extends Controller
 
     //CRUDE
      public function create(){
-        $subjects   = Subject::all();
-        $times      = Time::all();
-        $rooms      = Room::all();
-        $professors = Professor::all();
-        $sections    = Section::all();
-        $this->params['subjects'] = $subjects;
-        $this->params['times'] = $times;
-        $this->params['rooms'] = $rooms;
-        $this->params['professors'] = $professors;
-        $this->params['sections'] = $sections;
+        $schedules = Schedule::all();
+        $this->params['schedules'] = $schedules;
         //no route yet
         return view('schedule.create', $this->params);
     }
@@ -97,16 +89,11 @@ class SchedulesController extends Controller
 
             return redirect()->back()->with($this->params);
         }
-        
         $schedules= new Schedule;
-        $schedules->subject_id =INPUT::get('subject');
-        $schedules->time_id =INPUT::get('time');
-        $schedules->room_id =INPUT::get('room');
-        $schedules->prof_id =INPUT::get('professor');
-        $schedules->section_id =INPUT::get('section');
+        $schedules->name =INPUT::get('name');
         
         $schedules->save();
-        $this->params['msg']='Schedule was created successfully.';
+        $this->params['msg']='Room was created successfully.';
 
         return redirect()->route('schedule.index')
                         ->with( $this->params);

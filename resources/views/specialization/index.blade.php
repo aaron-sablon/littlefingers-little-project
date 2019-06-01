@@ -37,24 +37,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    
+                    @foreach( $specializations as $spec )
                         <tr>
                             <td scope="row" class="text-center" >
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td> 
-                            @foreach($specializations as $spec)
                             <td class="text-center">{{ $spec->grade }}</td>                   
                             <td class="text-center">{{ $spec->name }}</td>
-                            @endforeach
                             <td class="text-center">
 		      				<a href="{{route('specializations.show', $spec->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
-
-                          </td>
-
+		      			</td>
                            
                         </tr>
-                   
+                    @endforeach
                     </tbody>
                 </table>
             </div>

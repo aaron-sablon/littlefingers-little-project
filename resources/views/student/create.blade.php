@@ -37,54 +37,21 @@
                      <div class="form-group col-sm-6 mt-3">
                         <label for="gradelevel" class="mr-4">Gradelevel:</label>
                         <select name="gradelevel" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Gradelevel" >
-<<<<<<< HEAD
-                            <option value="Grade 7">Grade 7</option>
-                            <option value="Grade 8">Grade 8</option>
-                            <option value="Grade 9">Grade 9</option>
-                            <option value="Grade 10">Grade 10</option>
-                        </select>
-                    </div> -->
-
-                    <div class="form-group col-sm-6 mt-3">
-                        <label for="section" class="mr-4">Section:</label>
-                        <select name="section_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Section" >  
-                            <option value="Einstiein">Einstein</option>
-                            <option value="Archimedes">Archimedes</option>
-                            <option value="Diamond">Diamond</option>
-                            <option value="Amethyst">Amethyst</option>
-                            <option value="Emerald">Emerald</option>
-=======
                     
                             <option value="7">Grade 7</option>
                             <option value="8">Grade 8</option>
                             <option value="9">Grade 9</option>
                             <option value="10">Grade 10</option>
                  
->>>>>>> 989f077e1c5592689b56b319bc207e58519c5492
                         </select>
                     </div>
 
                     <div class="form-group col-sm-6 mt-3">
-<<<<<<< HEAD
-                        <label for="specialization" class="mr-4">Specialization:</label>
-                        <select name="spec_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Specialization" >  
-                            <option value="SSC">SSC</option>
-                            <option value="Agricrop">Agricrop</option>
-                            <option value="Animal Prod">Animal Prod</option>
-                            <option value="SMAW">SMAW</option>
-                            <option value="Food Processing">Food Processing</option>
-                            <option value="Carpentry">Carpentry</option>
-                            <option value="ICT">ICT</option>
-                            <option value="Cookery">Cookery</option>
-                            <option value="Dressmaking">Dressmaking</option>
-                            <option value="Automotive">Automotive</option>
-=======
                         <label for="section_id" class="mr-4">Section:</label>
                         <select name="section_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select Advisory" >
                         @foreach( $sections as $section )
                         <option value="{{ $section->id }}">{{ $section->name }}</option>
                         @endforeach
->>>>>>> 989f077e1c5592689b56b319bc207e58519c5492
                         </select>
                     </div>
                     <div class="form-group col-sm-6 mt-3">

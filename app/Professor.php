@@ -43,11 +43,7 @@ class Professor extends Authenticatable
     public static $rules = array(
         'fname'		=> 'required|min:1|max:50',
         'lname'		=> 'required|min:2|max:50',
-<<<<<<< HEAD
-        'advisory'	=> 'required|min:1|max:50',
-=======
         'section_id'	=> 'required|min:1|max:50',
->>>>>>> 989f077e1c5592689b56b319bc207e58519c5492
         'contact'	=> 'required|min:2|max:50'
         
     );
