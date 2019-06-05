@@ -50,4 +50,14 @@
                     </div>
                 </div>
             </form>
-        </div> 
+        </div>
+        @if(
+                    session()->has('error') && session()->has('form_errors')
+                    )
+                    <div class="alert alert-danger">
+                    @foreach(session()->get('form_errors') as $error)
+                        <p>{{ $error[0] }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
+                @endif 
