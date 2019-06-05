@@ -11,6 +11,15 @@ class Schedule extends Model
 
     protected $dates =['deleted_at'];
 
+    public static $rules = array(
+        'subject'   => 'required|min:1|max:20',
+        'slot'      => 'required|min:1|max:20',
+        'room'      => 'required|min:1|max:20',
+        'professor' => 'required|min:1|max:20',
+        'section'   => 'required|min:1|max:20'
+         
+    );
+
     public function subject(){
     	return $this->hasMany('App\Subject', 'subject_id', 'id');
     }
@@ -24,7 +33,7 @@ class Schedule extends Model
     }
 
     public function professor(){
-    	return $this->hasMany('App\Professor', 'professor_id', 'id');
+    	return $this->hasMany('App\Professor', 'prof_id', 'id');
     }
 
     public function section(){

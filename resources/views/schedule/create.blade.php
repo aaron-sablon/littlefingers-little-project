@@ -17,47 +17,47 @@
  
                 <div class="row border-bottom border-top border-success py-3 my-2">
 
-                    <div class="form-group col-sm-6">
-                        <label for="subject" >Subject:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Subject" name="subject">
+                <div class="form-group col-sm-6 mt-3">
+                        <label for="subject" class="mr-4">Subject:</label>
+                        <select name="subject" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
+                        @foreach( $subjects as $sub  )
+                            <option value="{{ $sub->id }}">{{ $sub->code }}</option>
+                        @endforeach
+                        </select>
                     </div>
               
-                    <div class="form-group col-sm-6 ml-auto">
-                        <label for="time">Time:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Time" name="time" >
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="slot" class="mr-4">Time Slot:</label>
+                        <select name="slot" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
+                        @foreach( $slots as $slot  )
+                            <option value="{{ $slot->id }}">{{ $slot->slot }}</option>
+                        @endforeach
+                        </select>
                     </div>
 
-                    <div class="form-group col-sm-6 ml-auto">
-                        <label for="room">Room:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Room" name="room" >
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="room" class="mr-4">Room:</label>
+                        <select name="room" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
+                        @foreach( $rooms as $room  )
+                            <option value="{{ $room->id }}">{{ $room->name }}</option>
+                        @endforeach
+                        </select>
                     </div>
 
-                    <div class="form-group col-sm-6 ml-auto">
-                        <label for="professor">Professor:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="Professor" name="professor" >
+                    <div class="form-group col-sm-6 mt-3">
+                        <label for="professor" class="mr-4">Professor:</label>
+                        <select name="professor" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
+                        @foreach( $professors as $prof  )
+                            <option value="{{ $prof->id }}">{{ $prof->fname. " " . $prof->lname }}</option>
+                        @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group col-sm-6 mt-3">
                         <label for="section" class="mr-4">Section:</label>
-                        <select name="user_id" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
-                        @foreach(  )
-                            <option value="Einstein">Einstein</option>
-                            <option value="{{  }}">Archimedes</option>
-                            <option value="{{  }}">Diamond</option>
-                            <option value="{{  }}">Amethyst</option>
-                            <option value="{{  }}">Emerald</option>
-                            <option value="{{  }}">Jade</option>
-                            <option value="{{  }}">Jasper</option>
-                            <option value="{{  }}">Opal</option>
-                            <option value="{{  }}">Pearl</option>
-                            <option value="{{  }}">Moonstone</option>
-                            <option value="{{  }}">Ruby</option>
-                            <option value="{{  }}">Sapphire</option>
-                            <option value="{{  }}">Tektite</option>
-                            <option value="{{  }}">Topaz</option>
-                            <option value="{{  }}">Tormaline</option>
-                            <option value="{{  }}">Turquoise</option>
-                            <option value="{{  }}">Zircon</option>
+                        <select name="section" id="service_type" class="custom-select ml-auto w-75" data-style="select-with-transition" title="Select section" >
+                        @foreach( $sections as $sec  )
+                            <option value="{{ $sec->id }}">{{ $sec->name }}</option>
                         @endforeach
                         </select>
                     </div>
@@ -77,3 +77,13 @@
                 </div>
             </form>
         </div> 
+        @if(
+                    session()->has('error') && session()->has('form_errors')
+                    )
+                    <div class="alert alert-danger">
+                    @foreach(session()->get('form_errors') as $error)
+                        <p>{{ $error[0] }}</p>
+                        <hr>
+                    @endforeach
+                    </div>
+                @endif

@@ -8,6 +8,7 @@ use App\Time;
 use App\Room;
 use App\Professor;
 use App\Section;
+use App\Specialization;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -64,9 +65,18 @@ class SchedulesController extends Controller
 
     //CRUDE
      public function create(){
-        $schedules = Schedule::all();
-        $this->params['schedules'] = $schedules;
-        //no route yet
+        $sections = Section::all();
+        $specializations = Specialization::all();
+        $slots = Time::all();
+        $rooms = Room::all();
+        $professors = Professor::all();
+        $subjects = Subject::all();
+        $this->params['sections'] = $sections;
+        $this->params['specializations'] = $specializations;
+        $this->params['slots'] = $slots;
+        $this->params['rooms'] = $rooms;
+        $this->params['professors'] = $professors;
+        $this->params['subjects'] = $subjects;
         return view('schedule.create', $this->params);
     }
     //NEED FOR CREATE
@@ -90,12 +100,16 @@ class SchedulesController extends Controller
             return redirect()->back()->with($this->params);
         }
         $schedules= new Schedule;
-        $schedules->name =INPUT::get('name');
+        $schedules->subject_id =INPUT::get('subject');
+        $schedules->time_id =INPUT::get('slot');
+        $schedules->room_id =INPUT::get('room');
+        $schedules->prof_id =INPUT::get('professor');
+        $schedules->section_id =INPUT::get('section');
         
         $schedules->save();
-        $this->params['msg']='Room was created successfully.';
+        $this->params['msg']='Schedule was created successfully.';
 
-        return redirect()->route('schedule.index')
+        return redirect()->route('schedules.index')
                         ->with( $this->params);
     }
 

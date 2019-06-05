@@ -46,11 +46,11 @@
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>{{ $sched->sub->name }}</td>
-                            <td>{{ $sched->time->slot }}</td>
-                            <td>{{ $sched->room->name }}</td>
-                            <td>{{ $sched->prof->fname. " " . $sched->prof->lname }}</td>
-                            <td>{{ $sched->sec->name }}</td>
+                            <td>{{ $sched->subject_id }}</td>
+                            <td>{{ $sched->time_id }}</td>
+                            <td>{{ $sched->room_id }}</td>
+                            <td>{{ $sched->prof_id }}</td>
+                            <td>{{ $sched->section_id }}</td>
                             <td class="text-center">
 		      				<a href="{{route('schedules.show', $sched->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>
