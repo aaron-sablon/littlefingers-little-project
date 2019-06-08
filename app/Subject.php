@@ -16,6 +16,6 @@ class Subject extends Model
     );
 
     public function schedule(){
-    	return $this->belongsTo('App\Schedule', 'subject_id', 'id');
+    	return $this->hasMany('App\Schedule', 'subject_id', 'id');
     }
 }

@@ -7,7 +7,7 @@
             <div class="container-fluid text-left my-3 py-2 border-top border-bottom border-success"> 
                 <div class="row">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"> <h2>Professor List</h2></li>
+                        <li class="list-inline-item"> <h2>Section List</h2></li>
                         <li class="list-inline-item"><h4 class="text-secondary">View Schedule</h4></li>
                     </ul>
                     <div class="col-sm-2  mt-4 ml-auto">
@@ -31,28 +31,21 @@
                     <thead class="text-center thead-light">
                         <tr>
                             <th></th>
-                            <th scope="col">Subject</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Room</th>
-                            <th scope="col">Professor</th>
                             <th scope="col">Section</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    @foreach( $schedules as $sched )
+                    <tbody class="text-center" >
+                    @foreach( $sections as $sec )
                         <tr>
-                            <td scope="row" class="text-center" >
+                            <td scope="row">
                                 <input class="form-check-input filled-in" type="checkbox" id="checkbox123">
                                 <label class="form-check-label" for="checkbox123" class="label-table"></label>
                             </td>
-                            <td>{{ $sched->subject_id }}</td>
-                            <td>{{ $sched->time_id }}</td>
-                            <td>{{ $sched->room_id }}</td>
-                            <td>{{ $sched->prof_id }}</td>
-                            <td>{{ $sched->section_id }}</td>
+
+                            <td>{{ $sec->grade. " - " .$sec->name }}</td>
                             <td class="text-center">
-		      				<a href="{{route('schedules.show', $sched->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
+		      				<a href="{{route('schedules.show', $sec->id)}}" class="text-success fa fa-angle-double-right mr-2"></a>
 		      			</td>
 
                            
@@ -71,7 +64,7 @@
                      
                     <div class="col-sm-10  mt-4">
                         <div class="pagination justify-content-end">
-                            {{ $schedules->links() }}
+                            {{ $sections->links() }}
                         </div>
                     </div>
                 </div>

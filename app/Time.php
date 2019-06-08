@@ -16,7 +16,7 @@ class Time extends Model
 	);
 
 	public function schedule(){
-		return $this->belongsTo('App\Schedule', 'time_id', 'id');
+		return $this->hasMany('App\Schedule', 'time_id', 'id');
 	}
     
 }

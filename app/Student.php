@@ -30,18 +30,6 @@ class Student extends Model
 
 
     //This is for relationships in database
-    public function schedule(){
-    	return $this->belongsTo('App\Schedule', 'student_id', 'id');
-    }
-
-    // public function section(){
-    //     return $this->hasOne('App\Section', 'section_id', 'id');
-    // }
-
-    // public function specialization(){
-    //     return $this->hasOne('App\Specialization', 'specialization_id', 'id');
-    // }
-
     public function section(){
         return $this->belongsTo('App\Section', 'section_id', 'id');
     }

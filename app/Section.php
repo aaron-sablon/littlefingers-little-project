@@ -17,12 +17,8 @@ class Section extends Model
 
 	//this is for relationships
 	public function schedule(){
-		return $this->belongsTo('App\Schedule', 'section_id', 'id');
+		return $this->hasMany('App\Schedule', 'section_id', 'id');
 	}
-
-	// public function student(){
-	// 	return $this->belongsTo('App\Student', 'section_id', 'id');
-	// }
 
 	public function student(){
 		return $this->hasMany('App\Student', 'section_id', 'id');

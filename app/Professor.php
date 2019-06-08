@@ -51,7 +51,7 @@ class Professor extends Authenticatable
     //This is for relationships in database
     
     public function schedule() {
-    	return $this-> belongsTo('App\Schedule', 'prof_id', 'id');
+    	return $this-> hasMany('App\Schedule', 'prof_id', 'id');
     }
 
     public function section(){

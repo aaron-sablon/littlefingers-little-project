@@ -30,29 +30,31 @@ class SchedulesController extends Controller
         ]; 
     }
     public function index(){
-        $schedules = Schedule::paginate(10);
-        $this->params['schedules'] = $schedules;
+        //$schedules = Schedule::paginate(10);
+        //$this->params['schedules'] = $schedules;
         //dd($users);
+        $sections = Section::paginate(10);
+        $this->params['sections'] = $sections;
          return view('schedule.index', $this->params);
     }
 
     public function show($id) {
 
-        $subjects = Schedule::find($id)->subjects;
-        $times = Schedule::find($id)->times;
-        $rooms = Schedule::find($id)->rooms;
-        $professors = Schedule::find($id)->professors;
-        $sections = Schedule::find($id)->sections;
-        $schedules = Schedule::find($id);
+        $subjects = Subject::all();
+        // $times = Time::all();
+        // $rooms = Room::all();
+        // $professors = Professor::all();
+        // $sections = Section::all();
+        $schedules = Schedule::with('subject')->find($id);
         $this->params=[
             'subjects' => $subjects,
-            'times' => $albums,
-            'rooms' => $rooms,
-            'professors' => $professors,
-            'sections' => $sections,
+            // 'slots' => $times,
+            // 'rooms' => $rooms,
+            // 'professors' => $professors,
+            // 'sections' => $sections,
             'schedules' => $schedules
         ];
-        //dd( $schedules->subjects->name);
+        dd($schedules);
         return view('schedule.show', $this->params);
     }
 
