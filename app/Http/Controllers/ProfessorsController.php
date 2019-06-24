@@ -10,19 +10,12 @@ use Illuminate\Http\Request;
 
 class ProfessorsController extends Controller
 {
-    public function __construct()
+    public function __construct( Request $request )
     {
-        $this->params = [
-            'error'                 => false, 
-            'status_code'           => 200, 
-            'msg'                   => '',
-            'results'               => [],
-            'results_count'         => 0,
-            'is_logged'             => true,
-            'forced_login'          => false,
-            'api_version'           => env('API_VERSION'),
-            'token'                 => null,
-        ]; 
+        $this->params = config('app.params');
+        $this->params['is_logged'] = true;
+        $this->params['forced_login'] = false;
+        $this->params['token'] = $request->token;
     }
     
 
