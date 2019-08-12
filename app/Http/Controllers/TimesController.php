@@ -32,7 +32,7 @@ class TimesController extends Controller
     }
 
     public function show($id){
-        $times = Time::all();
+        $times = Time::find($id);
        
         $this->params=[
             'slots'=>$times
@@ -81,9 +81,18 @@ class TimesController extends Controller
         return redirect()->route('slots.index')
                         ->with( $this->params);
     }
+    public function edit($id){
+        $times = Time::find($id);
+        
+        $this->params=[
+            'slots'=>$times
+        ];
+        //dd($times);
+        return view('slot.edit', $this->params);
+    }
 
     public function update(Request $request, $id){
-    	$rules=Times::$rules;
+    	$rules=Time::$rules;
         $validator = Validator::make(
             Input::all(),
             $rules
@@ -100,7 +109,7 @@ class TimesController extends Controller
             return redirect()->back()->with($this->params);
             
         }
-        $times = Times::find($id);
+        $times = Time::find($id);
         $times->slot = INPUT::get('slot');
 
         $times->save();

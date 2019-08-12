@@ -13,7 +13,7 @@
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('', ) }}" method="post" class="form-inline">
+          <form action="{{ route('slots.destroy', $slots->id) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('DELETE')
            
@@ -21,7 +21,7 @@
 
                   <div class="form-group col-sm-6">
                       <label for="time" >Time:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Time" name="time" value="{{  }}">
+                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Time" name="time" value="{{ $slots->slot }}">
                   </div>
             
               </div>
@@ -29,11 +29,11 @@
               <div class="container">
                   <div class="row my-3">
                       <div class="col-sm-3">
-                          <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                          <a  href="{{ route('slots.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                       </div>
 
                       <div class="col-sm-3">
-                          <a  href="{{ route('', ) }}" role="button" class="btn btn-success btn-block">Edit</a>
+                          <a  href="{{ route('slots.edit', $slots->id) }}" role="button" class="btn btn-success btn-block">Edit</a>
                       </div>
 
                   </div>

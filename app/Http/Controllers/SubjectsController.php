@@ -32,7 +32,7 @@ class SubjectsController extends Controller
     }
 
     public function show($id){
-        $subjects = Subject::all();
+        $subjects = Subject::find($id);
        
         $this->params=[
             'subjects'=>$subjects
@@ -84,6 +84,23 @@ class SubjectsController extends Controller
                         ->with( $this->params);
     }
     
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $subjects= Subject::find($id);
+        $this->params=[
+            'subjects'=>$subjects
+        ];
+        //dd($subjects);
+        return view('subject.edit', $this->params);
+    }
+
+    
     public function update(Request $request, $id){
         $rules=Subject::$rules;
         $validator = Validator::make(
@@ -108,7 +125,7 @@ class SubjectsController extends Controller
 
         $this->params['msg']='Information updated successfully.';
         //no route yet
-        return redirect()->route('subject,index')->with($this->params);
+        return redirect()->route('subjects.index')->with($this->params);
     	
     }
 

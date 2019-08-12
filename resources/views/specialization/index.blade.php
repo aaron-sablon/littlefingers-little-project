@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+</head>
+
 <div class="container col-md-10">
         
         <div class="container mt-4">

@@ -33,7 +33,7 @@
                       </div>
 
                       <div class="col-sm-3">
-                          <a  href="{{ route('rooms.update', $rooms->id ) }}" role="button" class="btn btn-success btn-block">Edit</a>
+                          <a  href="{{ route('rooms.edit', $rooms->id ) }}" role="button" class="btn btn-success btn-block">Edit</a>
                       </div>
 
                   </div>

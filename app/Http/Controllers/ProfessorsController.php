@@ -39,8 +39,10 @@ class ProfessorsController extends Controller
     //show the professors tab
     public function show($id){
         $professors = Professor::find($id);
-        $this->params=['professor' => $professor];
-
+        $this->params=[
+            'professors'=>$professors
+        ];
+        
         // dd( $albums->user->id);
         return view('professor.show', $this->params);
 
@@ -93,6 +95,19 @@ class ProfessorsController extends Controller
 
         return redirect()->route('professors.index')
                         ->with( $this->params);
+    }
+
+    public function edit($id)
+    {
+        $professors = Professor::with('section')->find($id);
+        $sections = Section::all();
+        // $sections = Professor::find($id)->section;
+        $this->params=[
+            'professors'=>$professors,
+            'sections'=>$sections,
+        ];
+        //dd($professors);
+        return view('professor.edit', $this->params);
     }
 
     public function update(Request $request, $id){

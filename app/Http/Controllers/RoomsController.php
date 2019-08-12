@@ -32,7 +32,7 @@ class RoomsController extends Controller
     }
 
     public function show($id){
-        $rooms = Room::all();
+        $rooms = Room::find($id);
        
         $this->params=[
             'rooms'=>$rooms
@@ -85,6 +85,16 @@ class RoomsController extends Controller
                         ->with( $this->params);
     }
     
+    public function edit($id)
+    {
+        $rooms = Room::find($id);
+        
+        $this->params=[
+            'rooms'=>$rooms
+        ];
+        //dd($rooms);
+        return view('room.edit', $this->params);
+    }
     public function update(Request $request, $id){
         $rules=Room::$rules;
         $validator = Validator::make(
@@ -100,15 +110,15 @@ class RoomsController extends Controller
             
             return redirect()->back()->with($this->params);
     	
-    }
-    $rooms = Room::find($id);
-    $rooms->name =INPUT::get('name');
+        }
+        $rooms = Room::find($id);
+        $rooms->name =INPUT::get('name');
 
-    $rooms->save();
+        $rooms->save();
 
     $this->params['msg']='Information updated successfully.';
     //no route yet
-    return redirect()->route('room.index')->with($this->params);
+    return redirect()->route('rooms.index')->with($this->params);
 }
 
     public function destroy($id){

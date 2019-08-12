@@ -13,7 +13,7 @@
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('specializations.destory', $specializations->id) }}" method="post" class="form-inline">
+          <form action="{{ route('specializations.destroy', $specializations->id) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('DELETE')
            
@@ -21,7 +21,7 @@
 
                   <div class="form-group col-sm-6">
                       <label for="name" >Name:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Name" name="name" value="{{ $spec->name }}">
+                      <input type="text" class="form-control mb-2 ml-auto w-75" disabled data-style="select-with-transition" placeholder="Name" name="name" value="{{ $specializations->name }}">
                   </div>
             
               </div>
@@ -33,7 +33,7 @@
                       </div>
 
                       <div class="col-sm-3">
-                          <a  href="{{ route('specializations.update', ) }}" role="button" class="btn btn-success btn-block">Edit</a>
+                          <a  href="{{ route('specializations.update', $specializations->id) }}" role="button" class="btn btn-success btn-block">Edit</a>
                       </div>
 
                   </div>

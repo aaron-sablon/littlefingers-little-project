@@ -6,41 +6,57 @@
 
       <div class="container-fluid text-left my-2">     
           <ul class="list-inline mb-1">
-              <li class="list-inline-item"> <h2>Section List</h2></li>
-              <li class="list-inline-item"><h4 class="text-secondary">Edit Section</h4></li>
+              <li class="list-inline-item"> <h2>Professor List</h2></li>
+              <li class="list-inline-item"><h4 class="text-secondary">Edit Professor</h4></li>
           </ul>
       </div>
 
     <!-- -->
    
       <div class="container">
-          <form action="{{ route('', ) }}" method="post" class="form-inline">
+          <form action="{{ route('professors.update', $professors->id ) }}" method="post" class="form-inline">
           {{csrf_field()}}
           @method('PUT')             
               <div class="row border-bottom border-top border-success py-3 my-2">
 
+                  <div class="form-group col-sm-6">
+                      <label for="fname" >Firstname:</label>
+                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Firstname" name="fname" value="{{ $professors->fname }}">
+                  </div>
+            
+                  <div class="form-group col-sm-6 ml-auto">
+                      <label for="lname">Lastname:</label>
+                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Lastname" name="lname" value="{{ $professors->lname }}" >
+                  </div>
+
                   <div class="form-group col-sm-6 mt-3">
                       <label for="gradelevel" class="mr-4">Gradelevel:</label>
                       <select name="user_id" id="service_type" class="custom-select ml-2 w-75"  data-style="select-with-transition" title="Select Gradelevel" >
-                      @foreach (  )
-                          <option value="{{  }}" {{  }}> {{  }} {{  }}</option>
-                      @endforeach
                       </select>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#"></a>
                   </div>
 
                   <div class="form-group col-sm-6 ml-auto">
-                      <label for="section">Section:</label>
-                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Section" name="section" value="{{  }}">
+                      <label for="contact">Contact No.:</label>
+                      <input type="text" class="form-control mb-2 ml-auto w-75"  placeholder="Contact Number" name="contact" value="{{ $professors->contact }}">
                   </div>
+
+                  <div class="form-group col-sm-6 mt-3">
+                      <label for="advisory" class="mr-4">Advisory:</label>
+                      <select name="user_id" id="service_type" class="custom-select ml-2 w-75"  data-style="select-with-transition" title="Select Advisory" >
+                      </select>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"></a>
+                  </div>
+
 
               </div>
 
               <div class="container">
                   <div class="row my-3">
                       <div class="col-sm-3">
-                          <a  href="{{ route('') }}" role="button" class="btn btn-primary btn-block">Back</a>
+                          <a  href="{{ route('professors.index') }}" role="button" class="btn btn-primary btn-block">Back</a>
                       </div>
 
                       <div class="col-sm-3 ml-auto">

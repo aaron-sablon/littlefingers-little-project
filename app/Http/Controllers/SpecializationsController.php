@@ -34,7 +34,7 @@ class SpecializationsController extends Controller
     }
 
     public function show($id){
-        $specializations = Specialization::all();
+        $specializations = Specialization::find($id);
        
         $this->params=[
             'specializations'=>$specializations

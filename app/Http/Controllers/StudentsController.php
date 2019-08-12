@@ -33,19 +33,22 @@ class StudentsController extends Controller
          return view('student.index', $this->params);
     }
 
-    public function show($lrn){
-        $students = Student::all();
+    public function show($id){
+        $students = Student::find($id);
+        $sections = Student::find($id)->section;
        
         $this->params=[
-            'students'=>$students
+            'students'=>$students,
+            'sections'=>$sections
+            
         ];
-        //dd( $students);
+        //dd( $sections);
         return view('student.show', $this->params);
     }
 
     //undo delete from databse
-    public function restore(Request $request, $lrn){
-        $students = Student::onlyTrashed()->find($lrn);
+    public function restore(Request $request, $id){
+        $students = Student::onlyTrashed()->find($id);
         $students->restore();
         return redirect()->route('student.index')->with('Success','Information restored.');
     }    
@@ -61,7 +64,7 @@ class StudentsController extends Controller
     public function store(Request $request){
 
         $rules=Student::$rules;
-        $validator = Validator::make(
+        $validator = validator::make(
             Input::all(),
             $rules
         );
@@ -77,7 +80,7 @@ class StudentsController extends Controller
             return redirect()->back()->with($this->params);
         }
         $students= new Student;
-        $students->lrn =INPUT::get('lrn');
+        $students->id =INPUT::get('id');
         $students->grade =INPUT::get('gradelevel');
         $students->fname =INPUT::get('fname');
         $students->lname =INPUT::get('lname');
@@ -92,9 +95,31 @@ class StudentsController extends Controller
                         ->with( $this->params);
     }
 
-    public function update(Request $request, $lrn){
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $students = Student::with('section')->find($id);
+        $sections = Section::all();
+        $specializations = Specialization::all();
+        // $sections = Student::find($id)->section;
+        // $specializations = Student::find($id)->specialization;
+        $this->params=[
+            'students'=>$students,
+            'sections'=>$sections,
+            'specializations'=>$specializations
+        ];
+        //dd($students);
+        return view('student.edit', $this->params);
+    }
+
+    public function update(Request $request, $id){
         $rules=Student::$rules;
-        $validator = Validator::make(
+        $validator=Validator::make(
             Input::all(),
             $rules
         );
@@ -109,7 +134,7 @@ class StudentsController extends Controller
 
             return redirect()->back()->with($this->params);
         }
-        $students = Student::find($lrn);
+        $students = Student::find($id);
         $students->fname =INPUT::get('fname');
         $students->lname =INPUT::get('lname');
         $students->section_id =INPUT::get('section_id');
@@ -118,12 +143,12 @@ class StudentsController extends Controller
 
         $this->params['msg']='Student information updated successfully.';
         //no route yet
-        return redirect()->route('student.index')->with($this->params);
+        return redirect()->route('students.index')->with($this->params);
     	
     }
 
-    public function destroy($lrn){
-        $students = Student::find($lrn);
+    public function destroy($id){
+        $students = Student::find($id);
         $students->delete();
 
         $this->params['msg']='Student was removed successfully.';

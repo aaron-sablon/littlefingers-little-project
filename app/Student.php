@@ -20,7 +20,7 @@ class Student extends Model
     //therefore no need for authentication
 
     public static $rules = array(
-        'lrn'           =>'required|min:2|max:50',
+        'id'           =>'required|min:12|max:12',
     	'fname'		    =>'required|min:2|max:50',
         'lname'		    =>'required|min:2|max:50',
         'gradelevel'    =>'required|min:1|max:20',

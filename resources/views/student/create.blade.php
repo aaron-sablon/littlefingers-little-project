@@ -19,8 +19,8 @@
 
                 
                     <div class="form-group col-sm-6">
-                        <label for="lrn" >LRN:</label>
-                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="LRN" name="lrn">
+                        <label for="id" >LRN:</label>
+                        <input type="text" class="form-control mb-2 ml-auto w-75" placeholder="LRN" name="id">
                     </div>
 
 

@@ -35,7 +35,7 @@ class SectionsController extends Controller
     }
 
     public function show($id){
-        $sections = Section::all();
+        $sections = Section::find($id);
        
         $this->params=[
             'sections'=>$sections
@@ -87,6 +87,16 @@ class SectionsController extends Controller
                         ->with( $this->params);
     }
 
+        public function edit($id)
+    {
+        $sections = Section::find($id);
+        
+        $this->params=[
+            'sections'=>$sections
+        ];
+        //dd($sections);
+        return view('section.edit', $this->params);
+    }
     public function update(Request $request, $id){
     	$rules=Section::$rules;
         $validator = Validator::make(
@@ -112,7 +122,7 @@ class SectionsController extends Controller
 
     $this->params['msg']='Information updated successfully.';
     //no route yet
-    return redirect()->route('section.index')->with($this->params);
+    return redirect()->route('sections.index')->with($this->params);
     }
 
     public function destroy($id){
