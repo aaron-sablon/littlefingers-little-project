@@ -15,7 +15,7 @@ class CreateSpecializationsTable extends Migration
     {
         Schema::create('specializations', function (Blueprint $table) {
             $table->increments('id');
-            $table->int('grade');
+            $table->integer('grade');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

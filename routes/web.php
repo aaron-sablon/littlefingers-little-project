@@ -15,18 +15,19 @@
 //     return view('welcome');
 // });
 
-Route::resource('professors', 'ProfessorsController');
+Route::group(['middleware' => ['jwt.auth']], function() {
 
-Route::resource('rooms', 'RoomsController');
+	Route::resource('professors', 'ProfessorsController');
+	Route::resource('rooms', 'RoomsController');
+	Route::resource('schedules', 'SchedulesController');
+	Route::resource('sections', 'SectionsController');
+	Route::resource('specializations', 'SpecializationsController');
+	Route::resource('students', 'StudentsController');
+	Route::resource('subjects', 'SubjectsController');
+	Route::resource('slots', 'TimesController');
+	
+});
 
-Route::resource('schedules', 'SchedulesController');
 
-Route::resource('sections', 'SectionsController');
-
-Route::resource('specializations', 'SpecializationsController');
-
-Route::resource('students', 'StudentsController');
-
-Route::resource('subjects', 'SubjectsController');
-
-Route::resource('slots', 'TimesController');
+Route::post('/auth/login', 'AuthController@login');
+Route::get('/auth/logout', 'AuthController@logout');

@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -225,7 +226,20 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
+
+    'params' => [
+            'error'                 => false, 
+            'status_code'           => 200, 
+            'msg'                   => '',
+            'results'               => [],
+            'results_count'         => 0,
+            'is_logged'             => true,
+            'forced_login'          => false,
+            'api_version'           => env('API_VERSION'),
+            'token'                 => null,
+        ],
 
 ];

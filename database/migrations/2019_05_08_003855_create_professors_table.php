@@ -17,7 +17,7 @@ class CreateProfessorsTable extends Migration
             $table->increments('id');
             $table->string('fname');
             $table->string('lname');
-            $table->int('section_id');
+            $table->integer('section_id');
             $table->string('contact');
             $table->timestamps();
             $table->softDeletes();
