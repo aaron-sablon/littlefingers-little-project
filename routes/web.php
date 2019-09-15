@@ -15,6 +15,14 @@
 //     return view('welcome');
 // });
 
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
+Route::get('/register', function () {
+    return view('auth/register');
+});
+
 Route::group(['middleware' => ['jwt.auth']], function() {
 
 	Route::resource('professors', 'ProfessorsController');
@@ -30,4 +38,4 @@ Route::group(['middleware' => ['jwt.auth']], function() {
 
 
 Route::post('/auth/login', 'AuthController@login');
-Route::get('/auth/logout', 'AuthController@logout');
+Route::post('/auth/logout', 'AuthController@logout');
